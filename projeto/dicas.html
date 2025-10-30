@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoPronto - Sustainability Tips</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e0e4e2] dark:border-b-[#203126] px-4 md:px-10 py-3">
+<div class="flex items-center gap-4 text-black dark:text-white">
+<svg class="size-6 text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L1 21h22L12 2zm-1.09 16.5l-4.24-4.24 1.41-1.41 2.83 2.83 5.66-5.66 1.41 1.41-7.07 7.07z"></path>
+</svg>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">EcoPronto</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-black dark:text-white/80 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-black dark:text-white/80 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Disposal Guide</a>
+<a class="text-black dark:text-white/80 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Collection Points</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">Sustainability Tips</a>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-black text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+<span class="truncate">Log In</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-80 dark:hover:bg-opacity-80 transition-opacity">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+<button class="md:hidden p-2 rounded-lg hover:bg-[#e8ebe9] dark:hover:bg-[#1a2c20] text-black dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1 px-4 md:px-10 py-8">
+<div class="flex flex-col gap-8">
+<div class="flex flex-wrap justify-between gap-4 items-center">
+<div class="flex flex-col gap-2">
+<p class="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Live More Sustainably</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-base font-normal leading-normal">Small changes, big impact. Discover daily tips to help the planet.</p>
+</div>
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">search</span>
+<input class="w-full h-11 pl-10 pr-4 rounded-lg bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white border-transparent focus:border-primary focus:ring-primary placeholder:text-gray-500 dark:placeholder:text-gray-400" placeholder="Search tips..." type="text"/>
+</div>
+</div>
+<div class="flex gap-2 p-1 flex-wrap">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-black px-4 transition-transform active:scale-95">
+<p class="text-sm font-bold leading-normal">All</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white/80 px-4 hover:bg-primary/30 dark:hover:bg-primary/20 transition-colors">
+<p class="text-sm font-medium leading-normal">At Home</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white/80 px-4 hover:bg-primary/30 dark:hover:bg-primary/20 transition-colors">
+<p class="text-sm font-medium leading-normal">At Work</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white/80 px-4 hover:bg-primary/30 dark:hover:bg-primary/20 transition-colors">
+<p class="text-sm font-medium leading-normal">Shopping</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white/80 px-4 hover:bg-primary/30 dark:hover:bg-primary/20 transition-colors">
+<p class="text-sm font-medium leading-normal">Travel</p>
+</button>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6">
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A glowing LED lightbulb, symbolizing energy efficiency." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwaF8rB7NSi-7JLOu53scq0hcRXC6O0GO2CWmOzr_5GDJl96Llh8GePvSOP6Ad9DUi-5vk0GT9xvwaMyHz0pjauiLcABNnzA6b-kMOgcQU0CgVCv6OQeSSwz8pYxCB_wWng91WzlxVxZvDlewLIiouqNYS-YGsVJtLhrteIfDkH2meC9sSN3HxubNz4hw-f4BmqdbccNqZKi53CE4oNac5qcF2QyZCaFJVjaIi6mfgwfaMjOUv9QvZ7DptedbqnYPWHHzbBYWBQByU");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Switch to LEDs</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">LED bulbs use up to 80% less energy than traditional incandescents.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A person refilling a reusable water bottle from a fountain." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwALjb-Q20Y3K7uFeLIprO51856h1aCqET37yb7aS2xOW4oK5jC6eCGdsTL6icrrcKmj0gW0SDf3KEuCNmjb7l7NvPSGjQI8AotVlqkTP3PdS0Hae_JfZ6rcDtqmhw47iRcVHfHL203oUcO9rfYx0QZuLzMd9A-Los_xlXRk8Y7wdcpxILV7aD_0rnf0MpThcoIXm2zxLwUbEfn808XwFoQ0jUL84uytG2dM3RwD7MTih6YAMIqZ9upSssPChAUtMfjLNPyeyFvR1w");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Ditch Plastic Bottles</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Carry a reusable bottle to reduce single-use plastic waste.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A stall at a local farmer's market with fresh produce." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1DDLIPgHzfOGZLA3TDPddbdLirxWyddEzs-ez-QhCo0PCb1rvlvfJlftwGlilr-oC1C7qk2Bun1zcFhd_vtqvuP0peZqaHaBPIn3G2tFWdIA64m8sDOCgyv3XhoGuZo4u5xUvouWA1rpKk8CvHyc0pDpWxj_9hciX5PeJ4QWjVT8-XgQ9C6iTn2_c2Ap2hhDbjBIBufm0XbH5qeTuXugceSESvymWg6V0o7-zTyVCCtkfCXku4-qlwEIflQjVaWkSgXd55uDWcnQK");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Shop Local</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Support local farmers and reduce the carbon footprint of your food.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A wooden compost bin in a lush garden filled with food scraps." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCj6nktKQas1Ji7CDOr06cW7H11O2YkBOzlqW1HaMPi-FtyiilpEKxztN45Dpp0RgWInlHsvyo_2oClmR6rWMB3e67MgN_rO3PUAxjvY5EUIJnT0lWJwKY_nM6vvAawHQQdUtDp7altH3-LgdPjGI-HtFoO0iUIVNsVsyP61EmkpH7Rt2oRpT5SOb9dXrdVYo-344w2WJssMAMUtVo966pA-vcdywj2_5gDEnlOQKHqv7fg3eW-wLhtorU_nSkuZDfiEw6Ob1sSxoOI");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Start a Compost Bin</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Turn your food scraps into nutrient-rich soil for your garden.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A bicycle leaning against a wall in a sunny city street." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuxciUK_CZ5o_VkywPLGhrinOzR5itHxN1IttclLslhMLnSzNB9ykAnTvVICEfHf-0QhEkCm8u3g3B2TrmASOXX3qXpVRmEJbqsWEOQLjwm2crmwOjWiAGizq00J8QOS-V3ZHIFfJwM1NC0yLpWM_FlW7DL70R6ibJR1OIkvp8DpudxfAyoV_UZNYUHqN0knrKQJxfd2gpTqhYITU99K0_TBAfxKDD8XMh8-fYecR9-ru9rGbZEJ5OEp_vPcfPvtBFGRdODaGCpSJT");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Bike More, Drive Less</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Reduce emissions and get great exercise by cycling for short trips.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A hand unplugging a charger from a wall socket." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCu7zEXNuL8XQyMnpEtXL6cMpl8E3wunqFGxyGsA8AuKrx4A1XNNTOUKcFTSrZEu2mPeZCaMOYH41QR_AwRqeZxFpwAe3zPFYkTkGDyHk9mwk7ZYdIWHdclToDih2qf3L_l127hv-9B7KG3ddVnBKZVazRj-AMIZIXOY8fNFYOUAVwqzPgB8eFamh-7K5EXcTeiCIHbP2aHy3I86okRiWV4HE0yFJNXzZoXkY2oqmm-nUIFjmYvw8QTS3XZd75nehoYAQ6JVi66Y9Kk");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Unplug Electronics</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Save energy by unplugging devices that are not in use.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="Hands holding a small plant sprout with soil." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7eCDCL7kAuophwjnXDyRwZUGaVSIfwfeRvL4mwaerEDUZyEmcdcokMnueye1y9LgHIB-9SN0ONhKyv0aFkTn6FXia12pRshh_MBu19yTLxmPoq0-HrtkMpPIF7j4ToRwLuREmMBK6KelJ6VbwbNbqfCUXk6h2gbQgbMO7WRD8ryNIeApeI0blL01ff3IqeqogL-FCIwn0GfgpgT_7hCKbZL_nX2P7qJnXY__Pup2aNcjhNuFcRS6bQORAcLyixgeQkbQqBK_L456k");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Plant a Garden</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Grow your own food to reduce food miles and packaging.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="A modern smart thermostat on a wall displaying the temperature." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGui7QaSWjGgcxKbgvdyoVoUVcKx3SHEkrGhgPptlh6Of9ikT03hGWSdRKgstKPJzOnFIBsvVUNPtB5B70kgOidl4RakHNKZrPoiHSbkLBuAhS-HKNtIiiLNBFRrIAVztxJkfjPjePQ-PLKtag_NdLiHVgCe2KhwGI5rUSPBKNLVo33JbR23kW_HBILg0TG4snU4f5RAt-1wZkAoy6KexDz-Ea45GzkEEy_d6vWCF3YFVdTWGkRP_kGtmsPk-KPrfOPdQ4nIdgYEbY");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Adjust Your Thermostat</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Lowering your heat by a few degrees can make a big difference.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl transition-transform duration-300 group-hover:scale-105" data-alt="Different colored recycling bins for paper, plastic, and glass." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGHDy1W55uzWOJrJ7Tb9xXPwwZ1zVKneBSg5AqjrdND_6NBXl1gTm21sVMXdcxf0VxzargfjHsbmVJcFsgD4UcHC1SrTBDWk19r53KC8p42c_tGEviO1nByTnDre-HHZ923ezLXN4UKkEGUs7K9K0j9S_vQ6IN-mSW7lv83_HYUaGbcYiAMiXe82G7wh5FvmSU_5lEkGbE8h90TpnErMNz6jUW5DlkEfD0lIumAF_UuKkPuj1rTcN0maPppb82Dsis_gDoOsoIvSId");'></div>
+<div>
+<p class="text-black dark:text-white text-base font-bold leading-normal">Recycle Properly</p>
+<p class="text-[#61896f] dark:text-[#a3b18a] text-sm font-normal leading-normal">Learn your local recycling rules to avoid contamination.</p>
+</div>
+</div>
+</div>
+<div class="flex px-4 py-3 justify-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#e8ebe9] dark:bg-[#1a2c20] text-black dark:text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-80 dark:hover:bg-opacity-80 transition-opacity">
+<span class="truncate">Load More Tips</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</body></html>

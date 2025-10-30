@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>EcoPronto — Cadastro</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#13ec5b",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102216",
+            "surface-light": "#ffffff",
+            "surface-dark": "#152e1c",
+            "text-light-primary": "#111813",
+            "text-dark-primary": "#f0f4f2",
+            "text-light-secondary": "#61896f",
+            "text-dark-secondary": "#a2b8aa",
+            "border-light": "#dbe6df",
+            "border-dark": "#2a4b36",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-text-dark-primary">
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+          <!-- Header -->
+          <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 md:px-10 py-3">
+            <div class="flex items-center gap-4 text-text-light-primary dark:text-text-dark-primary">
+              <div class="size-6 text-primary">
+                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8">
+                  <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+                  <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764Z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">EcoPronto</h2>
+            </div>
+            
+          </header>
+
+          <!-- Main -->
+          <main class="flex flex-col flex-1 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <!-- Banner lateral -->
+              <div class="hidden md:flex flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-center p-8"
+                   style='background-image: linear-gradient(rgba(16, 34, 22, 0.25), rgba(16, 34, 22, 0.55)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBeZy2h4lR4y3v0ZcV4F4rFsQDuH6YqSPgq1nYrT4z9HnX4K1Ona0K8dcYbA5_zbnZsQm8ZY7KnRhrRrGcvpI1rQpQqZK02zI9aDK3rYo9tAq6bXofLDuI1z3Tt35OBkHdC-BjPyHg8uZeZ8kQvXwt7Zs6Av8V5TbgcF6RhFjDQZVv3s12Qdq6w7U4PN8rY");'>
+                <h1 class="text-white text-3xl font-black leading-tight tracking-[-0.03em] max-w-[420px]">Crie sua conta</h1>
+                <p class="text-white/90 text-sm max-w-[420px]">Cadastre-se para salvar pontos de coleta, receber dicas e participar de campanhas sustentáveis.</p>
+              </div>
+
+              <!-- Formulário -->
+              <div class="flex items-center justify-center">
+                <div class="w-full max-w-md rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6 shadow-sm">
+                  <h2 class="text-text-light-primary dark:text-text-dark-primary text-2xl font-bold mb-2">Cadastrar</h2>
+                  <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm mb-6">Preencha as informações abaixo para criar sua conta.</p>
+
+                  <form class="flex flex-col gap-4" action="/cadastro" method="post" autocomplete="on" novalidate>
+                    <!-- Nome -->
+                    <label class="text-sm font-medium">
+                      <span class="block text-text-light-secondary dark:text-text-dark-secondary text-xs mb-1">Nome completo</span>
+                      <input
+                        type="text"
+                        name="nome"
+                        required
+                        placeholder="Seu nome"
+                        class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
+                      />
+                    </label>
+
+                    <!-- Email -->
+                    <label class="text-sm font-medium">
+                      <span class="block text-text-light-secondary dark:text-text-dark-secondary text-xs mb-1">E-mail</span>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="seu@email.com"
+                        class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
+                      />
+                    </label>
+
+                    <!-- Senha -->
+                    <label class="text-sm font-medium">
+                      <span class="block text-text-light-secondary dark:text-text-dark-secondary text-xs mb-1">Senha</span>
+                      <div class="relative">
+                        <input
+                          id="password"
+                          type="password"
+                          name="senha"
+                          required
+                          minlength="6"
+                          placeholder="••••••••"
+                          class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 pr-10 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
+                        />
+                        <button type="button" id="togglePassword" class="absolute right-2 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary">
+                          <span class="material-symbols-outlined !text-base">visibility</span>
+                        </button>
+                      </div>
+                    </label>
+
+                    <!-- Confirmar senha -->
+                    <label class="text-sm font-medium">
+                      <span class="block text-text-light-secondary dark:text-text-dark-secondary text-xs mb-1">Confirmar senha</span>
+                      <input
+                        id="confirmarSenha"
+                        type="password"
+                        name="confirmar_senha"
+                        required
+                        placeholder="••••••••"
+                        class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
+                      />
+                    </label>
+
+                   
+                    <!-- Botão -->
+                    <button type="submit" class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-primary text-text-light-primary text-sm font-bold hover:bg-primary/90">Cadastrar</button>
+
+                    <p class="text-center text-sm text-text-light-secondary dark:text-text-dark-secondary mt-2">
+                      Já tem uma conta? <a href="login.html" class="text-primary font-medium hover:underline">Entrar</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <!-- Footer -->
+          <footer class="flex flex-col gap-8 px-5 py-10 @container border-t border-border-light dark:border-border-dark mt-10">
+            <div class="flex flex-wrap justify-center gap-6">
+              <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Sobre</a>
+              <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Contato</a>
+              <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Termos</a>
+            </div>
+            <p class="text-center text-text-light-secondary dark:text-text-dark-secondary text-sm">© 2024 EcoPronto. Todos os direitos reservados.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("togglePassword");
+    const pwd = document.getElementById("password");
+    toggle.addEventListener("click", () => {
+      const type = pwd.getAttribute("type") === "password" ? "text" : "password";
+      pwd.setAttribute("type", type);
+      toggle.innerHTML = type === "password" ? '<span class="material-symbols-outlined">visibility</span>' : '<span class="material-symbols-outlined">visibility_off</span>';
+    });
+
+    // Validação simples de confirmação de senha
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      const senha = document.getElementById("password").value;
+      const confirmar = document.getElementById("confirmarSenha").value;
+      if (senha !== confirmar) {
+        e.preventDefault();
+        alert("As senhas não coincidem!");
+      }
+    });
+  </script>
+</body>
+</html>
