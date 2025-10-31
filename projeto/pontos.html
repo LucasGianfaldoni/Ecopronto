@@ -59,15 +59,15 @@
 </div>
 <div class="flex flex-1 justify-center gap-8">
 <div class="flex items-center gap-9">
-<a class="text-sm font-medium leading-normal" href="#">Home</a>
-<a class="text-sm font-medium leading-normal" href="#">Disposal Instructions</a>
-<a class="text-primary text-sm font-bold leading-normal" href="#">Collection Points</a>
-<a class="text-sm font-medium leading-normal" href="#">Learn</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="code.html">Página inicial</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="dicas.html">Dicas de descarte</a>
+<a class="text-primary text-sm font-bold leading-normal hover:text-primary" href="pontos.html">Pontos de coleta</a>
+
 </div>
 </div>
 <div class="flex items-center gap-4">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-text-light text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Log In</span>
+
+<a class="text-primary text-sm font-bold leading-normal" href="login.html">Entrar</a>
 </button>
 <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar with an abstract background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBX9qkJiVoLi8fbuChylPlhnQ7rGt0Bq0OB07EUf1-GqtGBDt5GGgX5M4KwNq4PQCmJPMrs-jPCnuqhjc5eLCM95gPYVg32wumWqN6HzoLMXaAPLPYGAPm8BC38Vb3qoEh6k29A_RFWg4kFm4XamRCnG664Z-d6tg1e_D2D7N9PpKKioim4rrgL3a8d5Og8otifS0VYb7Zg6DfwJLvvQX3_ogHwIb-MLTN-qawGMDSWthUZEtQCWOZ17_r-qkC3z-lJagT8f6_KC1lP");'></div>
 </div>
@@ -156,24 +156,15 @@
 </div>
 </div>
 </div>
-<!-- Right Panel: Map & Actions -->
+<!-- Lado direito mapa e -->
 <div class="col-span-8 flex flex-col relative">
-<!-- Action Buttons -->
+<!-- Botão de adicionar ponto-->
 <div class="absolute top-4 right-4 z-10 flex gap-2">
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-text-light gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 shadow-lg">
 <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
-<span class="truncate">Adicionar novo ponto</span>
-</button>
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 shadow-lg border border-border-light dark:border-border-dark">
-<span class="material-symbols-outlined" style="font-size: 20px;">upload_file</span>
-<span class="truncate hidden md:block">Importar JSON</span>
-</button>
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 shadow-lg border border-border-light dark:border-border-dark">
-<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
-<span class="truncate hidden md:block">Exportar JSON</span>
-</button>
+<a href="adicionar.html">Adicionar Ponto de Coleta</a>
 </div>
-<!-- Interactive Map -->
+<!--Mapa-->
 <div class="flex-1 bg-gray-300">
 <div class="w-full h-full bg-cover bg-center" data-alt="An interactive map showing several pinned locations for waste collection points in a city." data-location="City Map" style="background-image: url('https://placeholder.pics/svg/300');">
 </div>
