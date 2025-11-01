@@ -15,8 +15,7 @@
   "type": "commonjs",
   "main": "index.html",
  "scripts": {
-  "prebuild": "node inject-key.js",
-  "build": "echo \"Build concluído\""
+  "build": "node inject-key.js && echo '✅ Build finalizado com sucesso'"
 }
 
 }
