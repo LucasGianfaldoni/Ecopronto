@@ -17,6 +17,13 @@
 
     <!-- Estilo base -->
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
 
   <body>
@@ -66,7 +73,7 @@
 
     <!-- ===== Conteúdo principal ===== -->
     <main style="display: grid; grid-template-columns: 1fr 2fr; height: calc(100vh - 100px)">
-      <!-- ===== Painel lateral (lista e filtros) ===== -->
+      <!-- ===== Painel lateral ===== -->
       <section
         style="
           border-right: 1px solid var(--border-light);
@@ -82,7 +89,7 @@
           Encontre e gerencie pontos de coleta perto de você.
         </p>
 
-        <!-- Barra de busca -->
+        <!-- Busca -->
         <div style="margin-bottom: 1.5rem">
           <form style="display: flex; align-items: center; gap: 0.5rem">
             <span
@@ -103,7 +110,7 @@
           </form>
         </div>
 
-        <!-- Distância -->
+        <!-- Filtro -->
         <div style="margin-bottom: 1.5rem">
           <label for="distancia" style="font-weight: 500">Distância máxima</label>
           <input
@@ -119,72 +126,31 @@
           </p>
         </div>
 
-        <!-- Lista de pontos -->
+        <!-- Lista -->
         <div style="display: flex; flex-direction: column; gap: 1rem">
           <div class="card" style="cursor: pointer">
             <h3 style="font-weight: 700; font-size: 1.1rem">EcoPonto Central</h3>
             <p style="color: var(--text-light-secondary)">
               Rua da Sustentabilidade, 123
             </p>
-            <div style="margin-top: 0.5rem">
-              <span class="material-symbols-outlined" style="color: green"
-                >battery_charging_full</span
-              >
-              <span class="material-symbols-outlined" style="color: steelblue"
-                >devices</span
-              >
-              <span class="material-symbols-outlined" style="color: goldenrod"
-                >wine_bar</span
-              >
-            </div>
           </div>
-
-          <div
-            class="card"
-            style="border: 2px solid var(--primary); background-color: #13ec5b22"
-          >
+          <div class="card" style="cursor: pointer">
             <h3 style="font-weight: 700; font-size: 1.1rem">Ponto Verde Norte</h3>
             <p style="color: var(--text-light-secondary)">
               Av. das Árvores, 456
             </p>
-            <div style="margin-top: 0.5rem">
-              <span class="material-symbols-outlined" style="color: steelblue"
-                >devices</span
-              >
-              <span class="material-symbols-outlined" style="color: gray"
-                >oil_barrel</span
-              >
-            </div>
           </div>
-
           <div class="card" style="cursor: pointer">
             <h3 style="font-weight: 700; font-size: 1.1rem">Recicla Sul</h3>
             <p style="color: var(--text-light-secondary)">
               Praça do Meio Ambiente, 789
             </p>
-            <div style="margin-top: 0.5rem">
-              <span class="material-symbols-outlined" style="color: green"
-                >battery_charging_full</span
-              >
-              <span class="material-symbols-outlined" style="color: crimson"
-                >recycling</span
-              >
-            </div>
           </div>
-
           <div class="card" style="cursor: pointer">
             <h3 style="font-weight: 700; font-size: 1.1rem">Coleta Leste</h3>
             <p style="color: var(--text-light-secondary)">
               Travessa da Reciclagem, 101
             </p>
-            <div style="margin-top: 0.5rem">
-              <span class="material-symbols-outlined" style="color: goldenrod"
-                >wine_bar</span
-              >
-              <span class="material-symbols-outlined" style="color: gray"
-                >oil_barrel</span
-              >
-            </div>
           </div>
         </div>
       </section>
@@ -201,22 +167,55 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            z-index: 10;
           "
         >
           <span class="material-symbols-outlined">add</span>
           Adicionar Ponto
         </a>
 
-        <div
-          style="
-            width: 100%;
-            height: 100%;
-            background-image: url('https://placeholder.pics/svg/600');
-            background-size: cover;
-            background-position: center;
-          "
-        ></div>
+        <!-- Aqui o mapa real -->
+        <div id="map"></div>
       </section>
     </main>
+
+    <script>
+      // Coordenadas simuladas dos pontos
+      const pontos = [
+        { nome: "EcoPonto Central", lat: -23.5505, lng: -46.6333 },
+        { nome: "Ponto Verde Norte", lat: -23.5405, lng: -46.6233 },
+        { nome: "Recicla Sul", lat: -23.5605, lng: -46.6433 },
+        { nome: "Coleta Leste", lat: -23.5505, lng: -46.6133 },
+      ];
+
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -23.5505, lng: -46.6333 },
+          zoom: 13,
+        });
+
+        // Adiciona marcadores
+        pontos.forEach((ponto) => {
+          const marker = new google.maps.Marker({
+            position: { lat: ponto.lat, lng: ponto.lng },
+            map,
+            title: ponto.nome,
+          });
+
+          const info = new google.maps.InfoWindow({
+            content: `<strong>${ponto.nome}</strong>`,
+          });
+
+          marker.addListener("click", () => info.open(map, marker));
+        });
+      }
+    </script>
+
+    <!-- Substitua SUA_CHAVE_AQUI pela chave real -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc8DsHdecYaBcm-4dlNw-euI7QHfrGNRI&callback=initMap"
+    ></script>
   </body>
 </html>
