@@ -8,7 +8,7 @@ if (!key) {
   process.exit(1);
 }
 
-const inPath = path.join(__dirname, "public", "pontos.template.html");
+const inPath = path.join(__dirname, "public", "pontos..html");
 const outPath = path.join(__dirname, "public", "pontos.html");
 
 let content = fs.readFileSync(inPath, "utf8");
