@@ -1,0 +1,20 @@
+{
+  "name": "ecopronto",
+  "version": "1.0.0",
+  "description": "O descarte inadequado de resíduos sólidos é um dos principais problemas ambientais enfrentados pela sociedade moderna. Segundo o relatório \"Panorama dos Resíduos Sólidos no Brasil 2023\" da ABRELPE, mais de 40% dos resíduos gerados no país ainda têm destinação incorreta, contribuindo para a degradação ambiental.\r Com o avanço da tecnologia, ferramentas digitais surgiram para promover a sustentabilidade. Aplicativos como o Cataki, que conecta catadores à população, e o Recicla Sampa, que informa pontos de coleta em São Paulo, demonstram o potencial dessas soluções. Apesar disso, muitos desses sistemas são restritos a determinadas regiões ou apresentam interfaces complexas, dificultando o uso por pessoas com menos familiaridade tecnológica.\r O projeto EcoPronto surge para preencher essa lacuna, desenvolvendo uma solução simples e acessível, alinhada à ODS 12. A plataforma orientará a população sobre o descarte correto de diferentes tipos de resíduos e fornecerá informações sobre pontos de coleta próximos. O foco do projeto é garantir a alta usabilidade, seguindo os critérios da norma ISO/IEC 25010, para assegurar uma experiência satisfatória ao usuário.",
+  "homepage": "https://github.com/LucasGianfaldoni/Ecopronto#readme",
+  "bugs": {
+    "url": "https://github.com/LucasGianfaldoni/Ecopronto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasGianfaldoni/Ecopronto.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
