@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - EcoPronto</title>
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="layout-container">
+    <!-- ===== Cabeçalho ===== -->
+    <header>
+      <div class="logo" style="display: flex; align-items: center; gap: 0.5rem">
+        <div class="icon" style="color: var(--primary)">
+          <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+            <path
+              d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <h2>EcoPronto</h2>
+      </div>
+      <div>
+        <a href="index.html" class="btn btn-outline">Voltar</a>
+      </div>
+    </header>
+
+    <!-- ===== Conteúdo principal ===== -->
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+      <div class="card" style="max-width: 420px; width: 100%; padding: 2rem; text-align: center;">
+        <h1 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem;">
+          Criar nova conta
+        </h1>
+
+        <form id="formCadastro" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="text-align: left;">
+            <label for="nome">Nome completo</label>
+            <input id="nome" type="text" placeholder="Digite seu nome" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+          </div>
+
+          <div style="text-align: left;">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Digite seu email" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+          </div>
+
+          <div style="text-align: left;">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="Crie uma senha" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+          </div>
+
+          <div style="text-align: left;">
+            <label for="confirmar">Confirmar senha</label>
+            <input id="confirmar" type="password" placeholder="Repita sua senha" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+            <p id="erro-senha" style="display: none; color: crimson; font-size: 0.85rem; margin-top: 0.25rem;">
+              As senhas não coincidem.
+            </p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+
+        <p style="margin-top: 1rem; color: var(--text-light-secondary); font-size: 0.9rem;">
+          Já tem conta?
+          <a href="login.html" style="color: var(--primary); font-weight: 600;">Entrar</a>
+        </p>
+      </div>
+    </main>
+
+    <!-- ===== Rodapé ===== -->
+    <footer>
+      <p>© 2025 EcoPronto. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- ===== Script de validação ===== -->
+  <script>
+    const form = document.getElementById("formCadastro");
+    const senha = document.getElementById("senha");
+    const confirmar = document.getElementById("confirmar");
+    const erro = document.getElementById("erro-senha");
+
+    form.addEventListener("submit", function (e) {
+      if (senha.value !== confirmar.value) {
+        e.preventDefault();
+        erro.style.display = "block";
+        confirmar.style.borderColor = "crimson";
+      } else {
+        erro.style.display = "none";
+        confirmar.style.borderColor = "var(--border-light)";
+        alert("Cadastro realizado com sucesso!");
+        // Aqui você pode redirecionar, salvar, etc.
+      }
+    });
+  </script>
+</body>
+
+</html>
