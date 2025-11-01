@@ -14,9 +14,9 @@
   "author": "",
   "type": "commonjs",
   "main": "index.html",
-  "scripts": {
+ "scripts": {
   "prebuild": "node inject-key.js",
-  "build": "echo \"Build finalizado\""
+  "build": "echo \"Build concluído\""
 }
 
 }
