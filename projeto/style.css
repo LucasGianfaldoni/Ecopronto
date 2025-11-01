@@ -1,0 +1,182 @@
+/* 🌿 EcoPronto — Estilo base (versão sem Tailwind) */
+/* Mantém o visual limpo, moderno e ecológico */
+
+:root {
+  --primary: #13ec5b;
+  --background-light: #f6f8f6;
+  --background-dark: #102216;
+  --surface-light: #ffffff;
+  --surface-dark: #152e1c;
+  --text-light-primary: #111813;
+  --text-dark-primary: #f0f4f2;
+  --text-light-secondary: #61896f;
+  --text-dark-secondary: #a2b8aa;
+  --border-light: #dbe6df;
+  --border-dark: #2a4b36;
+  --font-display: "Public Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--background-light);
+  color: var(--text-light-primary);
+  margin: 0;
+  padding: 0;
+}
+
+/* 🌗 Modo escuro */
+body.dark {
+  background-color: var(--background-dark);
+  color: var(--text-dark-primary);
+}
+
+/* --- Cabeçalho --- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 2rem;
+}
+
+body.dark header {
+  border-color: var(--border-dark);
+}
+
+header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+ 
+}
+
+nav a {
+  margin: 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+body.dark nav a {
+  color: var(--text-dark-primary);
+}
+
+nav a:hover {
+  color:"primary";
+}
+
+/* --- Botões --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light-primary);
+}
+
+.btn-primary:hover {
+  background-color: #10c84e;
+}
+
+.btn-outline {
+  background-color: rgba(19, 236, 91, 0.2);
+  color: var(--text-light-primary);
+}
+
+body.dark .btn-outline {
+  color: var(--text-dark-primary);
+}
+
+.btn-outline:hover {
+  background-color: rgba(19, 236, 91, 0.3);
+}
+
+/* --- Seção principal --- */
+.hero {
+  background: linear-gradient(rgba(16, 34, 22, 0.4), rgba(16, 34, 22, 0.7)),
+    url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXGeY5WaNERFUkkDoQSRWCpVo8_SqT8UytviLImrO39yeo4Ka2UhU4AtAWhwSeAIJbLAJl1rHsw-cT_wffTDuX2vH7gKhSlvyQV0mxMyEhLNJl1akLYeNDI0pO-j2Alt2kfRWW9JrKemBdfWI0pCzIGxUrD2OqVc67dXscXq4O-YcAGa0FLI6SqDnhA3sQ1_bwQ6JDwzCy9YPzQafQ8O7EvUurAVtZ8_ioU4j0MCxk_no0SzWeJxXSWrX3fWZPS9TuqK9Ly8fHlG7H");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 6rem 1rem;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.hero h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* --- Cards e seções --- */
+.section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.card {
+  background-color: var(--surface-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .card {
+  background-color: var(--surface-dark);
+  border-color: var(--border-dark);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--text-light-secondary);
+}
+
+body.dark .card p {
+  color: var(--text-dark-secondary);
+}
+
+/* --- Rodapé --- */
+footer {
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light-secondary);
+}
+
+body.dark footer {
+  border-color: var(--border-dark);
+  color: var(--text-dark-secondary);
+}
