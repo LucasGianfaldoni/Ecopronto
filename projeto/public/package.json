@@ -15,7 +15,8 @@
   "type": "commonjs",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node inject-key.js"
-  }
+  "prebuild": "node inject-key.js",
+  "build": "echo \"Build finalizado\""
+}
+
 }
