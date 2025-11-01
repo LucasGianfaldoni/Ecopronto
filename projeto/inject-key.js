@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-
+console.log("🔍 GOOGLE_MAPS_API_KEY =", process.env.GOOGLE_MAPS_API_KEY || "❌ não encontrada");
 console.log("🔧 Iniciando script de injeção da chave do Google Maps...");
 
 // 1️⃣ Verifica se a variável de ambiente existe
