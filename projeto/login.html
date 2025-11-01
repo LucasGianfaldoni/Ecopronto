@@ -1,191 +1,75 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-BR">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>EcoPronto — Entrar</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13ec5b",
-            "background-light": "#f6f8f6",
-            "background-dark": "#102216",
-            "surface-light": "#ffffff",
-            "surface-dark": "#152e1c",
-            "text-light-primary": "#111813",
-            "text-dark-primary": "#f0f4f2",
-            "text-light-secondary": "#61896f",
-            "text-dark-secondary": "#a2b8aa",
-            "border-light": "#dbe6df",
-            "border-dark": "#2a4b36",
-          },
-          fontFamily: {
-            display: ["Public Sans", "sans-serif"],
-          },
-          borderRadius: {
-            DEFAULT: "0.25rem",
-            lg: "0.5rem",
-            xl: "0.75rem",
-            full: "9999px",
-          },
-        }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    /* pequeno ajuste para o ícone material */
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - EcoPronto</title>
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-text-dark-primary">
-  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
-      <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
-          <!-- Header (mesmo estilo do seu site) -->
-          <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 md:px-10 py-3">
-            <div class="flex items-center gap-4 text-text-light-primary dark:text-text-dark-primary">
-              <div class="size-6 text-primary">
-                <!-- logo simplificado (copiado do seu arquivo) -->
-                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8">
-                  <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
-                  <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764Z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </div>
-              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">EcoPronto</h2>
-            </div>
-            <div class="flex flex-1 justify-end gap-8">
-              <div class="hidden md:flex items-center gap-9">
-                <a class="text-sm font-medium leading-normal text-text-light-primary dark:text-text-dark-primary hover:text-primary" href="index.html">Página inicial</a>
-                <a class="text-sm font-medium leading-normal text-text-light-primary dark:text-text-dark-primary hover:text-primary" href="pontos.html">Pontos de Coleta</a>
-                <a class="text-sm font-medium leading-normal text-text-light-primary dark:text-text-dark-primary hover:text-primary" href="dicas.html">Dicas</a>
-              </div>
-              
-            </div>
-          </header>
-          <main class="flex flex-col flex-1 py-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-              <div class="hidden md:flex flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-center p-8"
-                   style='background-image: linear-gradient(rgba(16, 34, 22, 0.25), rgba(16, 34, 22, 0.55)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXGeY5WaNERFUkkDoQSRWCpVo8_SqT8UytviLImrO39yeo4Ka2UhU4AtAWhwSeAIJbLAJl1rHsw-cT_wffTDuX2vH7gKhSlvyQV0mxMyEhLNJl1akLYeNDI0pO-j2Alt2kfRWW9JrKemBdfWI0pCzIGxUrD2OqVc67dXscXq4O-YcAGa0FLI6SqDnhA3sQ1_bwQ6JDwzCy9YPzQafQ8O7EvUurAVtZ8_ioU4j0MCxk_no0SzWeJxXSWrX3fWZPS9TuqK9Ly8fHlG7H");'>
-                <h1 class="text-white text-3xl font-black leading-tight tracking-[-0.03em] max-w-[420px]">Bem-vindo de volta</h1>
-                <p class="text-white/90 text-sm max-w-[420px]">Acesse sua conta para localizar pontos de coleta, salvar favoritos e contribuir com a comunidade.</p>
-                <div class="mt-4">
-                  <a href="pontos.html" class="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary text-text-light-primary font-semibold hover:bg-primary/90">
-                    <span class="material-symbols-outlined"> place </span>
-                    Ver pontos
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-center">
-                <div class="w-full max-w-md rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6 shadow-sm">
-                  <h2 class="text-text-light-primary dark:text-text-dark-primary text-2xl font-bold mb-2">Entrar</h2>
-                  <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm mb-6">Insira seu e-mail e senha para acessar sua conta.</p>
-
-                  <form class="flex flex-col gap-4" action="/login" method="post" autocomplete="on" novalidate>
-                    <!--campo de email-->
-                    <label class="text-sm font-medium">
-                      <span class="block text-text-light-secondary dark:text-text-dark-secondary text-xs mb-1">E-mail</span>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="seu@email.com"
-                        class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
-                        aria-label="E-mail"
-                      />
-                    </label>
-
-                    <!--campo de senhja-->
-                    <label class="text-sm font-medium">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="text-text-light-secondary dark:text-text-dark-secondary text-xs">Senha</span>
-                        <a class="text-xs text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="esqueci-senha.html">Esqueci a senha</a>
-                      </div>
-                      <div class="relative">
-                        <input
-                          id="password"
-                          name="password"
-                          type="password"
-                          required
-                          placeholder="••••••••"
-                          minlength="6"
-                          class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-3 py-2 pr-10 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary focus:outline-0 focus:ring-0"
-                          aria-label="Senha"
-                        />
-                        <button type="button" id="togglePassword" aria-label="Mostrar senha" class="absolute right-2 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary">
-                          <span class="material-symbols-outlined !text-base"> visibility </span>
-                        </button>
-                      </div>
-                    </label>
-                    <div class="flex items-center justify-between">
-                      <label class="inline-flex items-center gap-2 text-sm">
-                        <input type="checkbox" name="remember" class="h-4 w-4 rounded border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark" />
-                        <span class="text-text-light-secondary dark:text-text-dark-secondary text-sm">Lembrar de mim</span>
-                      </label>
-                      <a href="cadastro.html" class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-primary">Criar conta</a>
-                    </div>
-
-                    <button type="submit" class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-primary text-text-light-primary text-sm font-bold hover:bg-primary/90">
-                      Entrar
-                    </button>
-                    <div class="flex items-center gap-3">
-                      <span class="h-px flex-1 bg-border-light dark:bg-border-dark"></span>
-                      <span class="text-xs text-text-light-secondary dark:text-text-dark-secondary">ou</span>
-                      <span class="h-px flex-1 bg-border-light dark:bg-border-dark"></span>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                      <button type="button" class="flex items-center justify-center gap-2 w-full rounded-lg h-10 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark text-text-light-primary dark:text-text-dark-primary hover:shadow-sm">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M21.6 12.227c0-.72-.064-1.413-.183-2.08H12v3.944h5.13c-.22 1.187-.887 2.194-1.895 2.873v2.38h3.056c1.79-1.65 2.829-4.08 2.829-6.117z"></path>
-                          <path d="M12 22c2.7 0 4.967-.893 6.623-2.42l-3.056-2.38c-.853.57-1.94.9-3.567.9-2.74 0-5.06-1.85-5.892-4.354H3.973v2.72C5.63 19.8 8.48 22 12 22z"></path>
-                          <path d="M6.108 13.726A6.983 6.983 0 015.7 12c0-.622.104-1.225.308-1.796V7.484H3.973A9.98 9.98 0 002 12c0 1.642.397 3.195 1.093 4.516l3.015-2.79z"></path>
-                          <path d="M12 6.978c1.47 0 2.79.506 3.828 1.494l2.869-2.77C16.957 3.99 14.69 3 12 3 8.48 3 5.63 5.2 3.973 7.484l3.135 2.72C6.94 8.828 9.26 6.978 12 6.978z"></path>
-                        </svg>
-                        Entrar com Google
-                      </button>
-
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-            </div>
-          </main>
-          <footer class="flex flex-col gap-8 px-5 py-10 @container border-t border-border-light dark:border-border-dark mt-10">
-            <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-center @[480px]:gap-10">
-             
-            </div>
-            <div class="flex flex-wrap justify-center gap-6">
-              
-            </div>
-            <p class="text-text-light-secondary dark:text-text-dark-secondary text-base">© 2025 EcoPronto. Todos os direitos reservados.</p>
-          </footer>
+<body>
+  <div class="layout-container">
+    <!-- ===== Cabeçalho ===== -->
+    <header>
+      <div class="logo" style="display: flex; align-items: center; gap: 0.5rem">
+        <div class="icon" style="color: var(--primary)">
+          <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+            <path
+              d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+              fill="currentColor"></path>
+          </svg>
         </div>
+        <h2>EcoPronto</h2>
       </div>
-    </div>
+      <div>
+        <a href="index.html" class="btn btn-outline">Voltar</a>
+      </div>
+
+    </header>
+
+    <!-- ===== Conteúdo principal ===== -->
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+      <div class="card" style="max-width: 420px; width: 100%; padding: 2rem; text-align: center;">
+        <h1 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem;">
+          Entrar na sua conta
+        </h1>
+
+        <form style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="text-align: left;">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Digite seu email" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+          </div>
+
+          <div style="text-align: left;">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="Digite sua senha" required
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: 8px;" />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+
+        <p style="margin-top: 1rem; color: var(--text-light-secondary); font-size: 0.9rem;">
+          Não tem conta?
+          <a href="cadastro.html" style="color: var(--primary); font-weight: 600;">Cadastre-se</a>
+        </p>
+      </div>
+    </main>
+
+    <!-- ===== Rodapé ===== -->
+    <footer>
+      <p>© 2025 EcoPronto. Todos os direitos reservados.</p>
+    </footer>
   </div>
-  <!--script de login que ainda precisa fazer funcionar-->
-  <script>
-    (function(){
-      const toggle = document.getElementById('togglePassword');
-      const pwd = document.getElementById('password');
-      if(!toggle || !pwd) return;
-      toggle.addEventListener('click', () => {
-        const type = pwd.getAttribute('type') === 'password' ? 'text' : 'password';
-        pwd.setAttribute('type', type);
-        toggle.innerHTML = type === 'password' ? '<span class=\"material-symbols-outlined\"> visibility </span>' : '<span class=\"material-symbols-outlined\"> visibility_off </span>';
-      });
-    })();
-  </script>
 </body>
+
 </html>
