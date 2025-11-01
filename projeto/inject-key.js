@@ -1,4 +1,6 @@
 // inject-key.js
+console.log("📁 Diretório atual:", __dirname);
+console.log("📄 Procurando arquivo em:", inPath);
 const fs = require("fs");
 const path = require("path");
 
@@ -8,8 +10,8 @@ if (!key) {
   process.exit(1);
 }
 
-const inPath = path.join(__dirname, "public", "pontos.template.html");
-const outPath = path.join(__dirname, "public", "pontos.html");
+const inPath = path.join(__dirname, "projeto", "pontos.template.html");
+const outPath = path.join(__dirname, "projeto", "pontos.html");
 
 let content = fs.readFileSync(inPath, "utf8");
 content = content.replace(/__GOOGLE_MAPS_KEY__/g, key);
