@@ -1,191 +1,118 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Adicionar Novo Ponto de Coleta - EcoPronto</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#4CAF50",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#102216",
-                        "text-light": "#333333",
-                        "text-dark": "#E0E0E0",
-                        "subtext-light": "#757575",
-                        "subtext-dark": "#BDBDBD",
-                        "border-light": "#dbe6df",
-                        "border-dark": "#37474F",
-                        "surface-light": "#FFFFFF",
-                        "surface-dark": "#263238",
-                        "error": "#D32F2F",
-                        "interactive": "#2196F3"
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
-        }
-    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Ponto de Coleta - EcoPronto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
-<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8">
-<div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-<main class="relative flex w-full max-w-4xl flex-col rounded-xl bg-surface-light dark:bg-surface-dark shadow-2xl overflow-hidden">
-<!-- Header -->
-<div class="flex flex-shrink-0 items-center justify-between gap-4 border-b border-border-light dark:border-border-dark p-4 sm:p-6">
-<h1 class="text-2xl sm:text-3xl font-black tracking-tighter text-text-light dark:text-text-dark">Adicionar Novo Ponto de Coleta</h1>
-<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-subtext-light dark:text-subtext-dark transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
-<span class="material-symbols-outlined" data-icon="close">close</span>
-</button>
-</div>
-<!-- Form Content -->
-<div class="flex-grow overflow-y-auto p-4 sm:p-6">
-<form class="space-y-8">
-<!-- Basic Information Section -->
-<section>
-<h2 class="text-xl font-bold tracking-tight text-text-light dark:text-text-dark pb-4">Informações do Ponto</h2>
-<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-<div class="md:col-span-2">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Nome do Ponto</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Digite o nome do ponto de coleta" type="text" value=""/>
-</label>
-</div>
-<div class="md:col-span-2">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Descrição / Observações</p>
-<textarea class="form-textarea w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 min-h-32 resize-y" placeholder="Adicione uma descrição ou observações relevantes"></textarea>
-</label>
-</div>
-<div>
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Telefone (Opcional)</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="(XX) XXXXX-XXXX" type="tel" value=""/>
-</label>
-</div>
-<div>
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Foto do Local</p>
-<div class="flex h-[138px] cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-center transition-colors hover:border-primary hover:bg-primary/10">
-<span class="material-symbols-outlined text-4xl text-subtext-light dark:text-subtext-dark" data-icon="upload_file">upload_file</span>
-<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Arraste e solte ou <span class="font-bold text-interactive">clique para enviar</span></p>
-<p class="text-xs text-subtext-light/70 dark:text-subtext-dark/70">PNG, JPG ou GIF (máx. 800x400px)</p>
-</div>
-<input class="hidden" type="file"/>
-</label>
-</div>
-</div>
-</section>
-<!-- Location Section -->
-<section>
-<h2 class="text-xl font-bold tracking-tight text-text-light dark:text-text-dark pb-4">Endereço</h2>
-<div class="grid grid-cols-1 gap-6 sm:grid-cols-6">
-<div class="sm:col-span-4">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Endereço</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Rua, Avenida, etc." type="text"/>
-</label>
-</div>
-<div class="sm:col-span-2">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Número</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ex: 123" type="text"/>
-</label>
-</div>
-<div class="sm:col-span-3">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Cidade</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ex: São Paulo" type="text"/>
-</label>
-</div>
-<div class="sm:col-span-3">
-<label class="flex flex-col">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">CEP</p>
-<input class="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3.5 text-base text-text-light dark:text-text-dark placeholder:text-subtext-light/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="00000-000" type="text"/>
-</label>
-</div>
-<div class="sm:col-span-6">
-<p class="text-base font-medium text-subtext-light dark:text-subtext-dark pb-2">Localização no Mapa</p>
-<div class="aspect-[16/7] w-full overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-700">
-<img class="h-full w-full object-cover" data-alt="Abstract map showing streets and city blocks" data-location="City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC728kWEEGW9ubiUkf3H1SZoIHu2Xhkvi3M7QHVGn5LIf9L1ReQnzkPYhEO8NiI5sm5o8XCQN0QTRNRACWqzqW3sTsmeJ3tIPcHb0q0Hu5jz3Z6htQ9KfKwPXcKgAw6AMp6draGkGj3uwSM1QYPA2xRr8b_6fkhrKBcPPsvlw72VYxzaFaI0hkV4yPSJxtkX_AJkltUwgccM3ZuYjpnN6SSra1gDjqssqYc5050rXP44isAktRYmGS0t9rLE9NXoDRGWSK4FuazX1I5"/>
-</div>
-</div>
-</div>
-</section>
-<!-- Waste Types Section -->
-<section>
-<h2 class="text-xl font-bold tracking-tight text-text-light dark:text-text-dark pb-4">Tipos de Resíduos Aceitos</h2>
-<div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Plástico</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Vidro</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Metal</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Papel</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Eletrônicos</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Baterias</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Orgânico</span>
-</label>
-<label class="flex cursor-pointer items-center gap-2 rounded-lg border border-border-light dark:border-border-dark p-3 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:text-primary dark:has-[:checked]:border-primary dark:has-[:checked]:bg-primary/20">
-<input class="form-checkbox h-5 w-5 rounded border-gray-400 text-primary focus:ring-primary/50" type="checkbox"/>
-<span class="font-medium">Óleo de Cozinha</span>
-</label>
-</div>
-</section>
-</form>
-</div>
-<!-- Action Bar -->
-<div class="flex flex-shrink-0 flex-col-reverse sm:flex-row items-center justify-end gap-3 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark p-4 sm:p-6">
-<button class="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-transparent text-subtext-light dark:text-subtext-dark text-base font-bold transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
-<span class="truncate">Cancelar</span>
-</button>
-<button class="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold transition-opacity disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-90" disabled="">
-<span class="truncate">Salvar</span>
-</button>
-</div>
-</main>
-</div>
-</body></html>
+
+<body>
+    <header>
+        
+        <h2>EcoPronto</h2>
+        <nav>
+            <a href="index.html">Página Inicial</a>
+            <a href="pontos.html">Pontos</a>
+            <a href="login.html" class="btn btn-primary">Entrar</a>
+            
+        </nav>
+    </header>
+
+    <main class="section" style="max-width: 900px; margin: 0 auto;">
+        <h1 style="font-size: 2rem; font-weight: 900; margin-bottom: 2rem;">Adicionar Novo Ponto de Coleta</h1>
+
+        <form>
+            <!-- Informações básicas -->
+            <section class="card" style="margin-bottom: 2rem;">
+                <h3>Informações do Ponto</h3>
+                <label>
+                    <p>Nome do Ponto</p>
+                    <input type="text" placeholder="Digite o nome do ponto de coleta"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+                <label>
+                    <p>Descrição / Observações</p>
+                    <textarea placeholder="Adicione uma descrição ou observações relevantes"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; min-height:120px; resize:vertical; margin-bottom:1rem;"></textarea>
+                </label>
+                <label>
+                    <p>Telefone (Opcional)</p>
+                    <input type="tel" placeholder="(XX) XXXXX-XXXX"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+                <label>
+                    <p>Foto do Local</p>
+                    <div
+                        style="border:2px dashed var(--border-light); border-radius:12px; padding:2rem; text-align:center; background-color:var(--background-light); color:var(--text-light-secondary);">
+                        <p style="margin:0;">Arraste e solte ou <strong style="color:var(--primary)">clique para
+                                enviar</strong></p>
+                        <p style="font-size:0.9rem; opacity:0.8;">PNG, JPG ou GIF (máx. 800x400px)</p>
+                    </div>
+                    <input type="file" style="display:none;">
+                </label>
+            </section>
+
+            <!-- Endereço -->
+            <section class="card" style="margin-bottom: 2rem;">
+                <h3>Endereço</h3>
+                <label>
+                    <p>Endereço</p>
+                    <input type="text" placeholder="Rua, Avenida, etc."
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+                <label>
+                    <p>Número</p>
+                    <input type="text" placeholder="Ex: 123"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+                <label>
+                    <p>Cidade</p>
+                    <input type="text" placeholder="Ex: São Paulo"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+                <label>
+                    <p>CEP</p>
+                    <input type="text" placeholder="00000-000"
+                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+                </label>
+
+                <p>Localização no Mapa</p>
+                <div style="border-radius:12px; overflow:hidden; margin-top:0.5rem;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC728kWEEGW9ubiUkf3H1SZoIHu2Xhkvi3M7QHVGn5LIf9L1ReQnzkPYhEO8NiI5sm5o8XCQN0QTRNRACWqzqW3sTsmeJ3tIPcHb0q0Hu5jz3Z6htQ9KfKwPXcKgAw6AMp6draGkGj3uwSM1QYPA2xRr8b_6fkhrKBcPPsvlw72VYxzaFaI0hkV4yPSJxtkX_AJkltUwgccM3ZuYjpnN6SSra1gDjqssqYc5050rXP44isAktRYmGS0t9rLE9NXoDRGWSK4FuazX1I5"
+                        alt="Mapa do local" style="width:100%; height:auto; display:block;">
+                </div>
+            </section>
+
+            <!-- Tipos de resíduos -->
+            <section class="card" style="margin-bottom: 2rem;">
+                <h3>Tipos de Resíduos Aceitos</h3>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1rem;">
+                    <label><input type="checkbox"> Plástico</label>
+                    <label><input type="checkbox"> Vidro</label>
+                    <label><input type="checkbox"> Metal</label>
+                    <label><input type="checkbox"> Papel</label>
+                    <label><input type="checkbox"> Eletrônicos</label>
+                    <label><input type="checkbox"> Baterias</label>
+                    <label><input type="checkbox"> Orgânico</label>
+                    <label><input type="checkbox"> Óleo de Cozinha</label>
+                </div>
+            </section>
+
+            <!-- Botões -->
+            <div style="display:flex; justify-content:flex-end; gap:1rem;">
+                <a href="pontos.html" class="btn btn-outline">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,231 +1,120 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EcoPronto - Waste Disposal Guide</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#4CAF50",
-                        "background-light": "#F5F5F5",
-                        "background-dark": "#1a1a1a",
-                        "text-light": "#333333",
-                        "text-dark": "#e0e0e0",
-                        "card-light": "#FFFFFF",
-                        "card-dark": "#2c2c2c",
-                        "border-light": "#E0E0E0",
-                        "border-dark": "#444444",
-                        "positive": "#2196F3",
-                        "negative": "#F44336",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-        }
-    </style>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPronto - Guia de Descarte de Resíduos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<header class="bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-10">
-<div class="container mx-auto px-4">
-<div class="flex items-center justify-between whitespace-nowrap py-3">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-2 text-text-light dark:text-text-dark">
-<span class="material-symbols-outlined text-primary text-3xl">recycling</span>
-<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">EcoPronto</h2>
-</div>
-<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-<div class="text-gray-500 dark:text-gray-400 flex bg-background-light dark:bg-background-dark items-center justify-center pl-3 rounded-l-lg border-r-0">
-<span class="material-symbols-outlined">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-background-dark focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search for an item..." value=""/>
-</div>
-</label>
-</div>
-<div class="flex flex-1 justify-end gap-8">
-<div class="hidden lg:flex items-center gap-6">
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
-<a class="text-sm font-medium leading-normal hover:text-primary text-primary" href="#">Disposal Guide</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Collection Points</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Learn</a>
-</div>
-<div class="flex gap-2">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Login</span>
-</button>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Sign Up</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</header>
-<main class="layout-container flex h-full grow flex-col">
-<div class="container mx-auto px-4 py-8">
-<div class="layout-content-container flex flex-col w-full flex-1">
-<div class="flex flex-wrap gap-2 mb-6">
-<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
-<span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary" href="#">Search Results</a>
-<span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-<span class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Plastic Bottle</span>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 @container">
-<aside class="lg:col-span-1 flex flex-col gap-6">
-<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
-<img class="w-full h-auto object-cover rounded-lg aspect-square" data-alt="A clear plastic water bottle on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKCKKWflkxrvC8qDlix9-toSHqms2SpDRuVxEp6hHU_Ud7hTBa0thbkYPrp11QhOsJlFTpdf97NhHQIcP2aRDF9oVZJV_Fg1M7p_DuRtuUnpleKzCne8pf4UYCj5LyrJiC4hvvdVKognyl855-qXZH-kEYUHh3kC_svSHW62za0YA5lS83PM6BrHLOpiCsCp08YBTyt2zNDD65yI8xWbstC0M3gtXP5WYx-hBMTYzjpzT9hYzaBWkUr43UzUAB419d065MzrISZ2E"/>
-<div class="flex flex-col gap-3 mt-4 text-center">
-<p class="text-text-light dark:text-text-dark text-3xl font-black leading-tight tracking-[-0.033em]">Plastic Bottle</p>
-<p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-normal">This item belongs in your curbside recycling bin after rinsing.</p>
-</div>
-</div>
-<div class="hidden lg:block">
-<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] gap-2">
-<span class="material-symbols-outlined">location_on</span>
-<span class="truncate">Find Nearby Collection Points</span>
-</button>
-<a class="w-full mt-3 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 text-primary dark:text-primary text-base font-bold leading-normal tracking-[0.015em] gap-2 hover:bg-primary/10" href="#">
-<span class="truncate">Learn More About Plastics</span>
-<span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-</aside>
-<section class="lg:col-span-2 flex flex-col gap-6">
-<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
-<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em] mb-4">Step-by-Step Instructions</h3>
-<div class="flex flex-col divide-y divide-border-light dark:divide-border-dark">
-<div class="flex items-center gap-4 py-4">
-<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
-<span class="material-symbols-outlined">delete_outline</span>
-</div>
-<div class="flex flex-col justify-center">
-<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">1. Empty Bottle</p>
-<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Make sure the bottle is completely empty of any liquid.</p>
-</div>
-</div>
-<div class="flex items-center gap-4 py-4">
-<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
-<span class="material-symbols-outlined">water_drop</span>
-</div>
-<div class="flex flex-col justify-center">
-<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">2. Rinse Clean</p>
-<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Give the bottle a quick rinse with water to remove residue. No need to use soap.</p>
-</div>
-</div>
-<div class="flex items-center gap-4 py-4">
-<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
-<span class="material-symbols-outlined">refresh</span>
-</div>
-<div class="flex flex-col justify-center">
-<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">3. Replace Cap</p>
-<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Screw the plastic cap back on the bottle. This helps ensure the cap gets recycled too.</p>
-</div>
-</div>
-<div class="flex items-center gap-4 py-4">
-<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
-<span class="material-symbols-outlined">recycling</span>
-</div>
-<div class="flex flex-col justify-center">
-<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">4. Place in Bin</p>
-<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Put the prepared bottle in your curbside recycling bin. Do not bag it.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
-<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em] mb-4">Do's</h3>
-<ul class="space-y-3">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Recycle bottles from water, soda, and juice.</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Leave the labels on; they are removed during processing.</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Keep the cap on the bottle to ensure it's recycled.</p>
-</li>
-</ul>
-</div>
-<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
-<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em] mb-4">Don'ts</h3>
-<ul class="space-y-3">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-negative mt-0.5">cancel</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Do not flatten the bottles; 3D shapes are easier for sorting machines.</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-negative mt-0.5">cancel</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Do not include bottles that held hazardous materials like motor oil.</p>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-negative mt-0.5">cancel</span>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Do not place plastic bags in the recycling bin with your bottles.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="space-y-4">
-<details class="group bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark" open="">
-<summary class="flex items-center justify-between cursor-pointer list-none">
-<h4 class="text-lg font-medium">Why It Matters</h4>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
-</summary>
-<p class="text-gray-600 dark:text-gray-400 mt-2 text-sm">Recycling one ton of plastic bottles saves 1.5 tons of carbon dioxide. It also conserves natural resources and energy, reduces landfill waste, and prevents pollution of our oceans and waterways.</p>
-</details>
-<details class="group bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
-<summary class="flex items-center justify-between cursor-pointer list-none">
-<h4 class="text-lg font-medium">Local Variations</h4>
-<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
-</summary>
-<p class="text-gray-600 dark:text-gray-400 mt-2 text-sm">Recycling rules can vary by city and state. Some municipalities may require caps to be removed, while others accept a wider range of plastic types. Always check with your local waste management provider for the most accurate information.</p>
-</details>
-</div>
-<div class="block lg:hidden mt-4">
-<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] gap-2">
-<span class="material-symbols-outlined">location_on</span>
-<span class="truncate">Find Nearby Collection Points</span>
-</button>
-<a class="w-full mt-3 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 text-primary dark:text-primary text-base font-bold leading-normal tracking-[0.015em] gap-2 hover:bg-primary/10" href="#">
-<span class="truncate">Learn More About Plastics</span>
-<span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-</section>
-</div>
-</div>
-</div>
-</main>
-</div>
-</body></html>
+
+<body>
+  <header>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-size:1.8rem; color:var(--primary);"></span>
+      <h2>EcoPronto</h2>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="dicas.html">Dicas de Descarte</a>
+      <a href="pontos.html">Pontos de Coleta</a>
+      <a href="login.html" class="btn btn-outline">Entrar</a>
+      <a href="cadastro.html" class="btn btn-primary">Cadastrar</a>
+    </nav>
+  </header>
+
+  <main class="section" style="max-width: 1000px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+      <p style="color: var(--text-light-secondary); font-size: 0.95rem;">
+        Início / Resultados da Pesquisa / Garrafa Plástica
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 2fr; gap:2rem; align-items:start;">
+      <!-- Lateral (imagem e informações básicas) -->
+      <aside>
+        <div class="card" style="text-align:center;">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKCKKWflkxrvC8qDlix9-toSHqms2SpDRuVxEp6hHU_Ud7hTBa0thbkYPrp11QhOsJlFTpdf97NhHQIcP2aRDF9oVZJV_Fg1M7p_DuRtuUnpleKzCne8pf4UYCj5LyrJiC4hvvdVKognyl855-qXZH-kEYUHh3kC_svSHW62za0YA5lS83PM6BrHLOpiCsCp08YBTyt2zNDD65yI8xWbstC0M3gtXP5WYx-hBMTYzjpzT9hYzaBWkUr43UzUAB419d065MzrISZ2E" 
+               alt="Garrafa plástica" style="width:100%; border-radius:12px;">
+          <h3 style="margin-top:1rem;">Garrafa Plástica</h3>
+          <p style="color:var(--text-light-secondary);">
+            Este item deve ir para o recipiente de reciclagem após ser lavado e esvaziado.
+          </p>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <a href="pontos.html" class="btn btn-primary" style="width:100%; display:block; text-align:center; margin-bottom:0.5rem;">
+            🔍 Encontrar Pontos de Coleta Próximos
+          </a>
+          <a href="#" class="btn btn-outline" style="width:100%; display:block; text-align:center;">
+            Saber mais sobre Plásticos →
+          </a>
+        </div>
+      </aside>
+
+      <!-- Conteúdo principal -->
+      <section>
+        <div class="card">
+          <h3>Passo a Passo para o Descarte Correto</h3>
+
+          <div style="margin-top:1rem;">
+            <p><strong>1. Esvazie a garrafa</strong><br>
+              Certifique-se de que não há líquido dentro do recipiente.</p>
+            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+            <p><strong>2. Enxágue</strong><br>
+              Lave rapidamente com água para remover resíduos. Não é necessário usar sabão.</p>
+            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+            <p><strong>3. Recoloque a tampa</strong><br>
+              Tampe novamente a garrafa — isso ajuda na reciclagem do conjunto.</p>
+            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+            <p><strong>4. Coloque no recipiente</strong><br>
+              Deposite no coletor de recicláveis, sem colocar em sacolas plásticas.</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+          <div class="card">
+            <h3>O que Fazer ✅</h3>
+            <ul style="text-align:left; padding-left:1.2rem;">
+              <li>Recicle garrafas de água, refrigerante e sucos.</li>
+              <li>Deixe os rótulos — eles são removidos no processo.</li>
+              <li>Mantenha a tampa na garrafa para facilitar a triagem.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>O que Evitar ❌</h3>
+            <ul style="text-align:left; padding-left:1.2rem;">
+              <li>Não amasse as garrafas — o formato 3D facilita a separação.</li>
+              <li>Não recicle embalagens de produtos perigosos (ex: óleo de motor).</li>
+              <li>Não coloque sacolas plásticas junto com as garrafas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <details open class="card">
+            <summary><strong>Por que isso é importante</strong></summary>
+            <p style="margin-top:0.5rem;">
+              Reciclar uma tonelada de garrafas plásticas evita a emissão de até 1,5 tonelada de CO₂. 
+              Além disso, conserva recursos naturais, reduz o lixo em aterros e evita a poluição dos oceanos.
+            </p>
+          </details>
+
+          <details class="card" style="margin-top:1rem;">
+            <summary><strong>Variações locais</strong></summary>
+            <p style="margin-top:0.5rem;">
+              As regras de reciclagem podem variar conforme a cidade. Algumas exigem a retirada das tampas 
+              ou aceitam diferentes tipos de plástico. Consulte sempre o serviço de coleta do seu município.
+            </p>
+          </details>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

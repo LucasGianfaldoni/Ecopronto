@@ -14,6 +14,8 @@
   --border-light: #dbe6df;
   --border-dark: #2a4b36;
   --font-display: "Public Sans", sans-serif;
+  --hover:text var(--primary)
+  
 }
 
 body {
