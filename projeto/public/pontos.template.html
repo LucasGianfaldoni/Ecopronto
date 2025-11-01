@@ -27,7 +27,6 @@
   </head>
 
   <body>
-    <!-- Cabeçalho -->
     <header>
       <div class="logo" style="display: flex; align-items: center; gap: 0.5rem">
         <div style="color: var(--primary)">
@@ -71,9 +70,7 @@
       </div>
     </header>
 
-    <!-- Corpo principal -->
     <main style="display: grid; grid-template-columns: 1fr 2fr; height: calc(100vh - 100px)">
-      <!-- Painel lateral -->
       <section
         style="
           border-right: 1px solid var(--border-light);
@@ -89,7 +86,6 @@
           Encontre e gerencie pontos de coleta perto de você.
         </p>
 
-        <!-- Campo de busca -->
         <form style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem">
           <span
             class="material-symbols-outlined"
@@ -108,7 +104,6 @@
           />
         </form>
 
-        <!-- Lista de pontos -->
         <div style="display: flex; flex-direction: column; gap: 1rem">
           <div class="card" style="cursor: pointer">
             <h3 style="font-weight: 700; font-size: 1.1rem">EcoPonto Central</h3>
@@ -131,7 +126,6 @@
         </div>
       </section>
 
-      <!-- Mapa -->
       <section style="position: relative; background-color: #ddd">
         <a
           href="adicionar.html"
@@ -154,7 +148,6 @@
       </section>
     </main>
 
-    <!-- Script do mapa -->
     <script>
       const pontos = [
         { nome: "EcoPonto Central", lat: -23.5505, lng: -46.6333 },
@@ -167,6 +160,7 @@
           center: { lat: -23.5505, lng: -46.6333 },
           zoom: 13,
         });
+
         pontos.forEach((p) => {
           const marker = new google.maps.Marker({
             position: { lat: p.lat, lng: p.lng },
@@ -183,7 +177,7 @@
       }
     </script>
 
-    <!-- API do Google Maps: a chave será injetada automaticamente -->
+    <!-- A chave será substituída pelo inject-key.js -->
     <script
       async
       defer

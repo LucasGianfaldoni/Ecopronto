@@ -3,38 +3,34 @@ const fs = require("fs");
 const path = require("path");
 
 // Caminhos dos arquivos
-const inPath = path.join(__dirname, "projeto", "pontos.template.html");
-const outPath = path.join(__dirname, "projeto", "pontos.html");
+const inFile = path.join(__dirname, "projeto", "pontos.template.html");
+const outFile = path.join(__dirname, "projeto", "pontos.html");
 
-console.log("📁 Diretório atual:", __dirname);
-console.log("📄 Template de entrada:", inPath);
-console.log("📄 Arquivo de saída:", outPath);
+// Recupera a chave da API do ambiente
+const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-// Lê a chave da API do Google Maps
-const key = process.env.GOOGLE_MAPS_API_KEY;
-
-if (!key) {
-  console.error("❌ Erro: variável GOOGLE_MAPS_API_KEY não encontrada.");
+if (!apiKey) {
+  console.error("❌ Erro: a variável de ambiente GOOGLE_MAPS_API_KEY não foi definida.");
   process.exit(1);
 }
 
-// Lê o conteúdo do template
+// Lê o template
 let content;
 try {
-  content = fs.readFileSync(inPath, "utf8");
+  content = fs.readFileSync(inFile, "utf8");
 } catch (err) {
-  console.error(`❌ Erro ao ler o template: ${err.message}`);
+  console.error(`❌ Erro ao ler o arquivo ${inFile}:`, err.message);
   process.exit(1);
 }
 
-// Substitui o placeholder pela chave real
-content = content.replace(/__GOOGLE_MAPS_KEY__/g, key);
+// Substitui a variável placeholder pela chave real
+content = content.replace(/__GOOGLE_MAPS_KEY__/g, apiKey);
 
-// Salva o HTML final
+// Salva o arquivo final
 try {
-  fs.writeFileSync(outPath, content, "utf8");
-  console.log("✅ pontos.html gerado com sucesso com a chave do Google Maps!");
+  fs.writeFileSync(outFile, content, "utf8");
+  console.log(`✅ Arquivo gerado com sucesso: ${outFile}`);
 } catch (err) {
-  console.error(`❌ Erro ao escrever o arquivo final: ${err.message}`);
+  console.error(`❌ Erro ao escrever o arquivo ${outFile}:`, err.message);
   process.exit(1);
 }
