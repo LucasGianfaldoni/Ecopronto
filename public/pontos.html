@@ -176,6 +176,81 @@
         });
       }
     </script>
+     <script>
+    let map;
+    let markers = [];
+
+    async function initMap() {
+      // Mapa base
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -23.5505, lng: -46.6333 },
+        zoom: 13,
+      });
+
+      // Campo de busca (Places API)
+      const input = document.getElementById("search-box");
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo("bounds", map);
+
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) return;
+
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+
+        // Marca o ponto buscado
+        addMarker(place.geometry.location.lat(), place.geometry.location.lng(), place.name);
+      });
+
+      // Clique no mapa adiciona novo ponto
+      map.addListener("click", (e) => {
+        const lat = e.latLng.lat();
+        const lng = e.latLng.lng();
+
+        const nome = prompt("Digite o nome do ponto de coleta:");
+        if (nome) {
+          addMarker(lat, lng, nome);
+          saveToDatabase({ nome, lat, lng });
+        }
+      });
+
+      // Carrega pontos do banco
+      loadMarkersFromDatabase();
+    }
+
+    // Adiciona marcador visual
+    function addMarker(lat, lng, nome) {
+      const marker = new google.maps.Marker({
+        position: { lat, lng },
+        map,
+        title: nome,
+      });
+
+      const info = new google.maps.InfoWindow({
+        content: `<strong>${nome}</strong>`,
+      });
+
+      marker.addListener("click", () => info.open(map, marker));
+      markers.push(marker);
+    }
+
+    // Salva ponto no banco via API
+    async function saveToDatabase(ponto) {
+      await fetch("/api/pontos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(ponto),
+      });
+    }
+
+    // Carrega pontos já salvos
+    async function loadMarkersFromDatabase() {
+      const res = await fetch("/api/pontos");
+      const pontos = await res.json();
+      pontos.forEach(p => addMarker(p.lat, p.lng, p.nome));
+    }
+  </script>
 
     <!-- Aqui a chave é real (substituída pelo script no build) -->
     <script
