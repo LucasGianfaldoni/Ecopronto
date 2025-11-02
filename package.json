@@ -14,7 +14,7 @@
   "author": "LucasGianfaldoni",
   "type": "commonjs",
   "scripts": {
-    "build": "node http://inject-key.js",
+    "build": "node inject-key.js",
     "dev": "echo 'Servidor estático - use live server ou similar'"
   }
 }
