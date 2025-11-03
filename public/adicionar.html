@@ -9,7 +9,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilo básico para o mapa */
+        /* Estilo obrigatório para o mapa ter dimensão */
         #mapa {
             height: 300px;
             width: 100%;
@@ -88,6 +88,7 @@
                 </label>
 
                 <p style="margin-top: 1.5rem;">Localização Exata no Mapa (Arraste o marcador)</p>
+                
                 <div id="mapa"></div>
 
                 <input type="hidden" name="latitude" id="input_latitude" required>
@@ -120,7 +121,7 @@
     </footer>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_DA_API_AQUI&callback=initMap">
     </script>
 
     <script>
@@ -131,7 +132,7 @@
         let map;
         let marker;
 
-        // PONTO 2: Função que é chamada quando a API do Google Maps é carregada
+        // Função que é chamada quando a API do Google Maps é carregada
         function initMap() {
             // Inicializa o mapa
             map = new google.maps.Map(document.getElementById("mapa"), {
@@ -160,10 +161,17 @@
                 document.getElementById('input_longitude').value = newPosition.lng().toFixed(6);
                 console.log('Nova posição:', newPosition.lat().toFixed(6), newPosition.lng().toFixed(6));
             });
+            
+            // CORREÇÃO: Usa um pequeno timeout para garantir que o container DIV
+            // tenha sido renderizado e o mapa se ajuste ao seu tamanho correto.
+            setTimeout(() => {
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(new google.maps.LatLng(LAT_INICIAL, LNG_INICIAL));
+            }, 100); 
         }
 
 
-        // Script de Envio do Formulário (AJAX/Fetch)
+        // Script de Envio do Formulário (AJAX/Fetch para o Backend)
         document.getElementById('formAdicionarPonto').addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -184,7 +192,7 @@
                 dados.residuos.push(checkbox.value);
             });
 
-            // Envia os dados para o backend (AJAX/Fetch)
+            // Envia os dados para o backend (API no servidor Node.js)
             fetch('/api/pontos', {
                 method: 'POST',
                 headers: {
@@ -204,5 +212,4 @@
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    alert('Falha ao adicionar ponto: ' + error.message);
-                });
+                    alert('Falha ao adicionar ponto: ' + error.message); });});
