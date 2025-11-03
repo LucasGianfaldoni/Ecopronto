@@ -72,6 +72,8 @@
           <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
 
+        <p id="msg" style="margin-top: 1rem; font-size: 0.9rem;"></p>
+
         <p style="margin-top: 1rem; color: var(--text-light-secondary); font-size: 0.9rem;">
           Já tem conta?
           <a href="login.html" style="color: var(--primary); font-weight: 600;">Entrar</a>
@@ -85,23 +87,54 @@
     </footer>
   </div>
 
-  <!-- ===== Script de validação ===== -->
+  <!-- ===== Script de integração ===== -->
   <script>
     const form = document.getElementById("formCadastro");
     const senha = document.getElementById("senha");
     const confirmar = document.getElementById("confirmar");
-    const erro = document.getElementById("erro-senha");
+    const erroSenha = document.getElementById("erro-senha");
+    const msg = document.getElementById("msg");
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      msg.textContent = "";
+      msg.style.color = "var(--danger)";
+
       if (senha.value !== confirmar.value) {
-        e.preventDefault();
-        erro.style.display = "block";
+        erroSenha.style.display = "block";
         confirmar.style.borderColor = "crimson";
-      } else {
-        erro.style.display = "none";
-        confirmar.style.borderColor = "var(--border-light)";
-        alert("Cadastro realizado com sucesso!");
-        // Aqui você pode redirecionar, salvar, etc.
+        return;
+      }
+
+      erroSenha.style.display = "none";
+      confirmar.style.borderColor = "var(--border-light)";
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = senha.value.trim();
+
+      try {
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome, email, password }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          msg.textContent = data.error || "Erro ao cadastrar usuário.";
+          return;
+        }
+
+        msg.style.color = "green";
+        msg.textContent = "Cadastro realizado com sucesso!";
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+      } catch (error) {
+        console.error(error);
+        msg.textContent = "Erro de conexão. Tente novamente.";
       }
     });
   </script>

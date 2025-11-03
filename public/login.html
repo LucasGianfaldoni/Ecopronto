@@ -32,7 +32,6 @@
       <div>
         <a href="index.html" class="btn btn-outline">Voltar</a>
       </div>
-
     </header>
 
     <!-- ===== Conteúdo principal ===== -->
@@ -42,7 +41,7 @@
           Entrar na sua conta
         </h1>
 
-        <form style="display: flex; flex-direction: column; gap: 1rem;">
+        <form id="loginForm" style="display: flex; flex-direction: column; gap: 1rem;">
           <div style="text-align: left;">
             <label for="email">Email</label>
             <input id="email" type="email" placeholder="Digite seu email" required
@@ -58,6 +57,8 @@
           <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
 
+        <p id="msg" style="margin-top: 1rem; color: var(--danger); font-size: 0.9rem;"></p>
+
         <p style="margin-top: 1rem; color: var(--text-light-secondary); font-size: 0.9rem;">
           Não tem conta?
           <a href="cadastro.html" style="color: var(--primary); font-weight: 600;">Cadastre-se</a>
@@ -70,6 +71,51 @@
       <p>© 2025 EcoPronto. Todos os direitos reservados.</p>
     </footer>
   </div>
+
+  <!-- ===== Script de integração ===== -->
+  <script>
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+
+      if (!email || !senha) {
+        msg.textContent = 'Preencha todos os campos.';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password: senha })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          msg.textContent = data.error || 'Erro ao fazer login.';
+          return;
+        }
+
+        // sucesso -> redirecionar
+        msg.style.color = 'green';
+        msg.textContent = 'Login realizado com sucesso!';
+        setTimeout(() => {
+          window.location.href = 'index.html'; 
+        }, 1000);
+
+      } catch (error) {
+        console.error(error);
+        msg.textContent = 'Erro de conexão. Tente novamente.';
+      }
+    });
+  </script>
 </body>
 
 </html>
