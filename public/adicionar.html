@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
     <header>
         
@@ -25,23 +26,22 @@
     <main class="section" style="max-width: 900px; margin: 0 auto;">
         <h1 style="font-size: 2rem; font-weight: 900; margin-bottom: 2rem;">Adicionar Novo Ponto de Coleta</h1>
 
-        <form>
-            <!-- Informações básicas -->
+        <form id="formAdicionarPonto"> 
             <section class="card" style="margin-bottom: 2rem;">
                 <h3>Informações do Ponto</h3>
                 <label>
                     <p>Nome do Ponto</p>
-                    <input type="text" placeholder="Digite o nome do ponto de coleta"
+                    <input type="text" name="nome_ponto" placeholder="Digite o nome do ponto de coleta"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
                 <label>
                     <p>Descrição / Observações</p>
-                    <textarea placeholder="Adicione uma descrição ou observações relevantes"
+                    <textarea name="descricao" placeholder="Adicione uma descrição ou observações relevantes"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; min-height:120px; resize:vertical; margin-bottom:1rem;"></textarea>
                 </label>
                 <label>
                     <p>Telefone (Opcional)</p>
-                    <input type="tel" placeholder="(XX) XXXXX-XXXX"
+                    <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
                 <label>
@@ -52,31 +52,30 @@
                                 enviar</strong></p>
                         <p style="font-size:0.9rem; opacity:0.8;">PNG, JPG ou GIF (máx. 800x400px)</p>
                     </div>
-                    <input type="file" style="display:none;">
+                    <input type="file" name="foto_local" style="display:none;">
                 </label>
             </section>
 
-            <!-- Endereço -->
             <section class="card" style="margin-bottom: 2rem;">
                 <h3>Endereço</h3>
                 <label>
                     <p>Endereço</p>
-                    <input type="text" placeholder="Rua, Avenida, etc."
+                    <input type="text" name="logradouro" placeholder="Rua, Avenida, etc."
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
                 <label>
                     <p>Número</p>
-                    <input type="text" placeholder="Ex: 123"
+                    <input type="text" name="numero" placeholder="Ex: 123"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
                 <label>
                     <p>Cidade</p>
-                    <input type="text" placeholder="Ex: São Paulo"
+                    <input type="text" name="cidade" placeholder="Ex: São Paulo"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
                 <label>
                     <p>CEP</p>
-                    <input type="text" placeholder="00000-000"
+                    <input type="text" name="cep" placeholder="00000-000"
                         style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
                 </label>
 
@@ -87,22 +86,20 @@
                 </div>
             </section>
 
-            <!-- Tipos de resíduos -->
             <section class="card" style="margin-bottom: 2rem;">
                 <h3>Tipos de Resíduos Aceitos</h3>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1rem;">
-                    <label><input type="checkbox"> Plástico</label>
-                    <label><input type="checkbox"> Vidro</label>
-                    <label><input type="checkbox"> Metal</label>
-                    <label><input type="checkbox"> Papel</label>
-                    <label><input type="checkbox"> Eletrônicos</label>
-                    <label><input type="checkbox"> Baterias</label>
-                    <label><input type="checkbox"> Orgânico</label>
-                    <label><input type="checkbox"> Óleo de Cozinha</label>
+                    <label><input type="checkbox" name="residuos" value="Plástico"> Plástico</label>
+                    <label><input type="checkbox" name="residuos" value="Vidro"> Vidro</label>
+                    <label><input type="checkbox" name="residuos" value="Metal"> Metal</label>
+                    <label><input type="checkbox" name="residuos" value="Papel"> Papel</label>
+                    <label><input type="checkbox" name="residuos" value="Eletrônicos"> Eletrônicos</label>
+                    <label><input type="checkbox" name="residuos" value="Baterias"> Baterias</label>
+                    <label><input type="checkbox" name="residuos" value="Orgânico"> Orgânico</label>
+                    <label><input type="checkbox" name="residuos" value="Óleo de Cozinha"> Óleo de Cozinha</label>
                 </div>
             </section>
 
-            <!-- Botões -->
             <div style="display:flex; justify-content:flex-end; gap:1rem;">
                 <a href="pontos.html" class="btn btn-outline">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Salvar</button>
@@ -113,6 +110,53 @@
     <footer>
         <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
     </footer>
+    <script>
+    document.getElementById('formAdicionarPonto').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const dados = {};
+        
+        // Coleta dados de texto
+        for (const [key, value] of formData.entries()) {
+            if (key !== 'residuos') {
+                dados[key] = value;
+            }
+        }
+
+        // Coleta os resíduos marcados
+        dados.residuos = [];
+        form.querySelectorAll('input[name="residuos"]:checked').forEach(checkbox => {
+            dados.residuos.push(checkbox.value);
+        });
+
+        // Envia os dados para o backend (supondo que esteja rodando em http://localhost:3000/pontos)
+        fetch('/api/pontos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        })
+        .then(response => {
+            if (!response.ok) {
+                // Lidar com erros de status HTTP (4xx, 5xx)
+                return response.json().then(err => { throw new Error(err.message || 'Erro ao salvar ponto.') });
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Ponto de coleta adicionado com sucesso!');
+            // Redireciona para a lista de pontos
+            window.location.href = 'pontos.html'; 
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Falha ao adicionar ponto: ' + error.message);
+        });
+    });
+</script>
 </body>
 
 </html>
