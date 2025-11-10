@@ -3,8 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 
 
 const supabase = createClient(
-process.env.SUPABASE_URL,
-process.env.SUPABASE_SERVICE_ROLE_KEY // usar service role para criar usuário com senha
+process.env.DATABASE_URL,
+process.env.DATABASE_SERVICE_ROLE_KEY // usar service role para criar usuário com senha
 );
 
 

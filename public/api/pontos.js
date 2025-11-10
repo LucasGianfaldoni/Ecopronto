@@ -1,7 +1,7 @@
 // /api/pontos.js
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
+const supabase = createClient(process.env.DATABASE_URL, process.env.DATABASE_KEY)
 
 export default async function handler(req, res) {
   // === GET: retorna todos os pontos com resíduos ===

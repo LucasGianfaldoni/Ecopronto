@@ -1,210 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Novo Ponto de Coleta - EcoPronto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilo obrigatório para o mapa ter dimensão */
-        #mapa {
-            height: 300px;
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adicionar Novo Ponto de Coleta - EcoPronto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #mapa {
+      height: 300px;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h2>EcoPronto</h2>
-        <nav>
-            <a href="index.html">Página Inicial</a>
-            <a href="pontos.html">Pontos</a>
-            <a href="login.html" class="btn btn-primary">Entrar</a>
-        </nav>
-    </header>
+  <header>
+    <h2>EcoPronto</h2>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="pontos.html">Pontos</a>
+      <a href="login.html" class="btn btn-primary">Entrar</a>
+    </nav>
+  </header>
 
-    <main class="section" style="max-width: 900px; margin: 0 auto;">
-        <h1 style="font-size: 2rem; font-weight: 900; margin-bottom: 2rem;">Adicionar Novo Ponto de Coleta</h1>
+  <main class="section" style="max-width: 900px; margin: 0 auto;">
+    <h1 style="font-size: 2rem; font-weight: 900; margin-bottom: 2rem;">
+      Adicionar Novo Ponto de Coleta
+    </h1>
 
-        <form id="formAdicionarPonto">
-            <section class="card" style="margin-bottom: 2rem;">
-                <h3>Informações do Ponto</h3>
-                <label>
-                    <p>Nome do Ponto</p>
-                    <input type="text" name="nome_ponto" placeholder="Digite o nome do ponto de coleta" required
-                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
-                </label>
-                <label>
-                    <p>Descrição / Observações</p>
-                    <textarea name="descricao" placeholder="Adicione uma descrição ou observações relevantes"
-                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; min-height:120px; resize:vertical; margin-bottom:1rem;"></textarea>
-                </label>
-                <label>
-                    <p>Telefone (Opcional)</p>
-                    <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX"
-                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
-                </label>
-                <label>
-                   
-                    
-                   
-                </label>
-            </section>
+    <form id="formAdicionarPonto">
+      <section class="card" style="margin-bottom: 2rem;">
+        <h3>Informações do Ponto</h3>
 
-            <section class="card" style="margin-bottom: 2rem;">
-                <h3>Endereço</h3>
-                <label>
-                    <p>Rua / Logradouro</p>
-                    <input type="text" name="logradouro" placeholder="Rua, Avenida, etc." required
-                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
-                </label>
-                <div style="display:flex; gap:1rem; margin-bottom:1rem;">
-                    <label style="flex-grow:1;">
-                        <p>Número</p>
-                        <input type="text" name="numero" placeholder="Ex: 123"
-                            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
-                    </label>
-                    <label style="flex-grow:1;">
-                        <p>CEP</p>
-                        <input type="text" name="cep" placeholder="00000-000" required
-                            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
-                    </label>
-                </div>
-                <label>
-                    <p>Cidade</p>
-                    <input type="text" name="cidade" placeholder="Ex: São Paulo" required
-                        style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
-                </label>
+        <label>
+          <p>Nome do Ponto</p>
+          <input type="text" name="nome_ponto" placeholder="Digite o nome do ponto de coleta" required
+            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+        </label>
 
-                <p style="margin-top: 1.5rem;">Localização Exata no Mapa (Arraste o marcador)</p>
-                
-                <div id="mapa"></div>
+        <label>
+          <p>Descrição / Observações</p>
+          <textarea name="descricao" placeholder="Adicione uma descrição ou observações relevantes"
+            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; min-height:120px; resize:vertical; margin-bottom:1rem;"></textarea>
+        </label>
 
-                <input type="hidden" name="latitude" id="input_latitude" required>
-                <input type="hidden" name="longitude" id="input_longitude" required>
-            </section>
+        <label>
+          <p>Telefone (Opcional)</p>
+          <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX"
+            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+        </label>
+      </section>
 
-            <section class="card" style="margin-bottom: 2rem;">
-                <h3>Tipos de Resíduos Aceitos</h3>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1rem;">
-                    <label><input type="checkbox" name="residuos" value="Plástico"> Plástico</label>
-                    <label><input type="checkbox" name="residuos" value="Vidro"> Vidro</label>
-                    <label><input type="checkbox" name="residuos" value="Metal"> Metal</label>
-                    <label><input type="checkbox" name="residuos" value="Papel"> Papel</label>
-                    <label><input type="checkbox" name="residuos" value="Eletrônicos"> Eletrônicos</label>
-                    <label><input type="checkbox" name="residuos" value="Baterias"> Baterias</label>
-                    <label><input type="checkbox" name="residuos" value="Orgânico"> Orgânico</label>
-                    <label><input type="checkbox" name="residuos" value="Óleo de Cozinha"> Óleo de Cozinha</label>
-                </div>
-            </section>
+      <section class="card" style="margin-bottom: 2rem;">
+        <h3>Endereço</h3>
 
-            <div style="display:flex; justify-content:flex-end; gap:1rem;">
-                <a href="pontos.html" class="btn btn-outline">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Salvar</button>
-            </div>
-        </form>
-    </main>
+        <label>
+          <p>Rua / Logradouro</p>
+          <input type="text" name="logradouro" placeholder="Rua, Avenida, etc." required
+            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+        </label>
 
-    <footer>
-        <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
-    </footer>
+        <div style="display:flex; gap:1rem; margin-bottom:1rem;">
+          <label style="flex-grow:1;">
+            <p>Número</p>
+            <input type="text" name="numero" placeholder="Ex: 123"
+              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
+          </label>
 
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&callback=initMap">
-    </script>
+          <label style="flex-grow:1;">
+            <p>CEP</p>
+            <input type="text" name="cep" placeholder="00000-000" required
+              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
+          </label>
+        </div>
 
-    <script>
-        // Coordenadas iniciais (Exemplo: Centro de São Paulo)
-        const LAT_INICIAL = -23.55052;
-        const LNG_INICIAL = -46.63330;
+        <div style="display:flex; gap:1rem;">
+          <label style="flex:1;">
+            <p>Cidade</p>
+            <input type="text" name="cidade" placeholder="Ex: São Paulo" required
+              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+          </label>
+          <label style="flex:1;">
+            <p>Estado</p>
+            <input type="text" name="estado" placeholder="Ex: SP"
+              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+          </label>
+        </div>
 
-        let map;
-        let marker;
+        <p style="margin-top: 1.5rem;">Localização Exata no Mapa (Arraste o marcador)</p>
+        <div id="mapa"></div>
 
-        // Função que é chamada quando a API do Google Maps é carregada
-        function initMap() {
-            // Inicializa o mapa
-            map = new google.maps.Map(document.getElementById("mapa"), {
-                zoom: 12,
-                center: { lat: LAT_INICIAL, lng: LNG_INICIAL },
-                mapTypeControl: false,
-                streetViewControl: false
-            });
+        <input type="hidden" name="latitude" id="input_latitude" required>
+        <input type="hidden" name="longitude" id="input_longitude" required>
+      </section>
 
-            // Cria o marcador arrastável
-            marker = new google.maps.Marker({
-                position: { lat: LAT_INICIAL, lng: LNG_INICIAL },
-                map,
-                draggable: true,
-                title: "Arraste para definir o local"
-            });
+      <section class="card" style="margin-bottom: 2rem;">
+        <h3>Tipos de Resíduos Aceitos</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:1rem;">
+          <label><input type="checkbox" name="residuos" value="Plástico"> Plástico</label>
+          <label><input type="checkbox" name="residuos" value="Vidro"> Vidro</label>
+          <label><input type="checkbox" name="residuos" value="Metal"> Metal</label>
+          <label><input type="checkbox" name="residuos" value="Papel"> Papel</label>
+          <label><input type="checkbox" name="residuos" value="Eletrônicos"> Eletrônicos</label>
+          <label><input type="checkbox" name="residuos" value="Baterias"> Baterias</label>
+          <label><input type="checkbox" name="residuos" value="Orgânico"> Orgânico</label>
+          <label><input type="checkbox" name="residuos" value="Óleo de Cozinha"> Óleo de Cozinha</label>
+        </div>
+      </section>
 
-            // Seta os valores iniciais nos campos ocultos
-            document.getElementById('input_latitude').value = LAT_INICIAL.toFixed(6);
-            document.getElementById('input_longitude').value = LNG_INICIAL.toFixed(6);
+      <div style="display:flex; justify-content:flex-end; gap:1rem;">
+        <a href="pontos.html" class="btn btn-outline">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </main>
 
-            // Adiciona evento para atualizar Lat/Lng ao arrastar o marcador
-            marker.addListener("dragend", () => {
-                const newPosition = marker.getPosition();
-                document.getElementById('input_latitude').value = newPosition.lat().toFixed(6);
-                document.getElementById('input_longitude').value = newPosition.lng().toFixed(6);
-                console.log('Nova posição:', newPosition.lat().toFixed(6), newPosition.lng().toFixed(6));
-            });
-            
-            // CORREÇÃO: Usa um pequeno timeout para garantir que o container DIV
-            // tenha sido renderizado e o mapa se ajuste ao seu tamanho correto.
-            setTimeout(() => {
-                google.maps.event.trigger(map, 'resize');
-                map.setCenter(new google.maps.LatLng(LAT_INICIAL, LNG_INICIAL));
-            }, 100); 
+  <footer>
+    <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Google Maps -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&callback=initMap">
+  </script>
+
+  <script>
+    const LAT_INICIAL = -23.55052;
+    const LNG_INICIAL = -46.63330;
+
+    let map, marker;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("mapa"), {
+        zoom: 12,
+        center: { lat: LAT_INICIAL, lng: LNG_INICIAL },
+        mapTypeControl: false,
+        streetViewControl: false
+      });
+
+      marker = new google.maps.Marker({
+        position: { lat: LAT_INICIAL, lng: LNG_INICIAL },
+        map,
+        draggable: true,
+        title: "Arraste para definir o local"
+      });
+
+      document.getElementById('input_latitude').value = LAT_INICIAL.toFixed(6);
+      document.getElementById('input_longitude').value = LNG_INICIAL.toFixed(6);
+
+      marker.addListener("dragend", () => {
+        const pos = marker.getPosition();
+        document.getElementById('input_latitude').value = pos.lat().toFixed(6);
+        document.getElementById('input_longitude').value = pos.lng().toFixed(6);
+      });
+
+      setTimeout(() => {
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(new google.maps.LatLng(LAT_INICIAL, LNG_INICIAL));
+      }, 100);
+    }
+
+    document.getElementById('formAdicionarPonto').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const dados = {};
+
+      // Coleta dados simples
+      for (const [key, value] of formData.entries()) {
+        if (key !== 'residuos') dados[key] = value;
+      }
+
+      // Coleta resíduos marcados
+      dados.residuos = [];
+      event.target.querySelectorAll('input[name="residuos"]:checked').forEach(cb => {
+        dados.residuos.push(cb.value);
+      });
+
+      // Ajusta para formato esperado pelo backend
+      dados.nome = dados.nome_ponto;
+      dados.endereco = `${dados.logradouro || ""}, ${dados.numero || ""}`;
+      delete dados.nome_ponto;
+      delete dados.logradouro;
+      delete dados.numero;
+      delete dados.cep;
+
+      try {
+        const resp = await fetch('/api/pontos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        if (!resp.ok) {
+          const err = await resp.json();
+          throw new Error(err.error || 'Erro ao salvar ponto.');
         }
 
-
-        // Script de Envio do Formulário (AJAX/Fetch para o Backend)
-        document.getElementById('formAdicionarPonto').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const form = event.target;
-            const formData = new FormData(form);
-            const dados = {};
-
-            // Coleta dados de texto (incluindo latitude e longitude)
-            for (const [key, value] of formData.entries()) {
-                if (key !== 'residuos' && key !== 'foto_local') {
-                    dados[key] = value;
-                }
-            }
-
-            // Coleta os resíduos marcados
-            dados.residuos = [];
-            form.querySelectorAll('input[name="residuos"]:checked').forEach(checkbox => {
-                dados.residuos.push(checkbox.value);
-            });
-
-            // Envia os dados para o backend (API no servidor Node.js)
-            fetch('/api/pontos', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dados)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(err => { throw new Error(err.message || 'Erro ao salvar ponto.') });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    alert('Ponto de coleta adicionado com sucesso!');
-                    window.location.href = 'pontos.html';
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Falha ao adicionar ponto: ' + error.message); });});
+        alert('Ponto de coleta adicionado com sucesso!');
+        window.location.href = 'pontos.html';
+      } catch (err) {
+        console.error('Erro:', err);
+        alert('Falha ao adicionar ponto: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>
