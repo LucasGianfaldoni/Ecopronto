@@ -46,38 +46,62 @@ export default async function handler(req, res) {
     try {
       const { nome, endereco, cidade, estado, latitude, longitude, residuos } = req.body
 
+      console.log("🟢 Recebendo dados:", req.body)
+
+      // Validação simples antes de enviar
+      if (!nome || !endereco || !cidade || !estado) {
+        return res.status(400).json({ error: 'Campos obrigatórios ausentes' })
+      }
+
       // Insere o ponto principal
       const { data: novoPonto, error: erroPonto } = await supabase
         .from('pontos_coleta')
-        .insert([{ nome, endereco, cidade, estado, latitude, longitude }])
+        .insert([
+          {
+            nome,
+            endereco,
+            cidade,
+            estado,
+            latitude: latitude ? parseFloat(latitude) : null,
+            longitude: longitude ? parseFloat(longitude) : null,
+          },
+        ])
         .select()
         .single()
 
-      if (erroPonto) throw erroPonto
+      if (erroPonto) {
+        console.error('❌ Erro ao inserir ponto:', erroPonto)
+        throw erroPonto
+      }
 
-      // Se vierem resíduos, associa cada um
+      console.log('✅ Novo ponto criado:', novoPonto)
+
+      // Associa resíduos, se existirem
       if (residuos && residuos.length > 0) {
         for (const residuoNome of residuos) {
-          // Busca o ID do resíduo pelo nome
           const { data: residuo, error: erroBusca } = await supabase
             .from('residuos')
             .select('id')
             .eq('nome', residuoNome)
             .single()
 
-          if (erroBusca) continue // ignora caso não exista
+          if (erroBusca) {
+            console.warn(`⚠️ Resíduo não encontrado: ${residuoNome}`)
+            continue
+          }
 
-          // Cria a relação ponto <-> resíduo
-          await supabase
+          const { error: erroAssoc } = await supabase
             .from('ponto_residuo')
             .insert([{ ponto_id: novoPonto.id, residuo_id: residuo.id }])
+
+          if (erroAssoc) console.error('Erro ao associar resíduo:', erroAssoc)
         }
       }
 
       return res.status(201).json({ success: true, ponto: novoPonto })
     } catch (error) {
-      console.error('Erro ao adicionar ponto:', error)
-      return res.status(500).json({ error: 'Erro ao criar ponto de coleta' })
+      console.error('🔥 Erro ao adicionar ponto:', error)
+      return res.status(500).json({ error: 'Erro ao criar ponto de coleta', detalhes: error.message })
     }
   }
 
