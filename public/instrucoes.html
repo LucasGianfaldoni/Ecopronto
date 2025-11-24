@@ -1,20 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoPronto - Guia de Descarte de Resíduos</title>
+  <!-- Configuração do Tailwind CSS (Necessário para as classes funcionarem) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Substitui o style.css externo para ser self-contained, definindo as variáveis e classes usadas -->
+  <style>
+    /* Variáveis de Cores (baseadas nas classes Tailwind e originais) */
+    :root {
+      --primary: #10b981;
+      /* Emerald-500 */
+      --text-light-secondary: #6b7280;
+      /* Gray-500 */
+      --border-light: #e5e7eb;
+      /* Gray-200 */
+      --background-light: #f9fafb;
+      /* Gray-50 */
+    }
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: var(--background-light);
+      color: #1f2937;
+    }
+
+    .card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #059669;
+      /* Emerald-600 */
+    }
+
+    .btn-outline {
+      background-color: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+    }
+
+    /* Estilo para o grid principal */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        /* Coluna única em telas pequenas */
+      }
+
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <div style="display:flex; align-items:center; gap:10px;">
-      <span style="font-size:1.8rem; color:var(--primary);"></span>
+      <span style="font-size:1.8rem; color:var(--primary);">♻️</span>
       <h2>EcoPronto</h2>
     </div>
-    <nav>
+    <nav class="flex gap-4 items-center">
       <a href="index.html">Início</a>
       <a href="dicas.html">Dicas de Descarte</a>
       <a href="pontos.html">Pontos de Coleta</a>
@@ -24,97 +107,185 @@
   </header>
 
   <main class="section" style="max-width: 1000px; margin: 0 auto;">
-    <div style="margin-bottom: 2rem;">
-      <p style="color: var(--text-light-secondary); font-size: 0.95rem;">
-        Início / Resultados da Pesquisa / Garrafa Plástica
-      </p>
-    </div>
 
-    <div style="display:grid; grid-template-columns: 1fr 2fr; gap:2rem; align-items:start;">
-      <!-- Lateral (imagem e informações básicas) -->
-      <aside>
-        <div class="card" style="text-align:center;">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKCKKWflkxrvC8qDlix9-toSHqms2SpDRuVxEp6hHU_Ud7hTBa0thbkYPrp11QhOsJlFTpdf97NhHQIcP2aRDF9oVZJV_Fg1M7p_DuRtuUnpleKzCne8pf4UYCj5LyrJiC4hvvdVKognyl855-qXZH-kEYUHh3kC_svSHW62za0YA5lS83PM6BrHLOpiCsCp08YBTyt2zNDD65yI8xWbstC0M3gtXP5WYx-hBMTYzjpzT9hYzaBWkUr43UzUAB419d065MzrISZ2E" 
-               alt="Garrafa plástica" style="width:100%; border-radius:12px;">
-          <h3 style="margin-top:1rem;">Garrafa Plástica</h3>
-          <p style="color:var(--text-light-secondary);">
-            Este item deve ir para o recipiente de reciclagem após ser lavado e esvaziado.
-          </p>
-        </div>
+    <!-- SEÇÃO ORIGINAL: GARRAFA PLÁSTICA -->
+    <div id="garrafa">
+      <div style="margin-bottom: 2rem;">
+        <p style="color: var(--text-light-secondary); font-size: 0.95rem;">
 
-        <div style="margin-top:1rem;">
-          <a href="pontos.html" class="btn btn-primary" style="width:100%; display:block; text-align:center; margin-bottom:0.5rem;">
-            🔍 Encontrar Pontos de Coleta Próximos
-          </a>
-          <a href="#" class="btn btn-outline" style="width:100%; display:block; text-align:center;">
-            Saber mais sobre Plásticos →
-          </a>
-        </div>
-      </aside>
+        </p>
+      </div>
 
-      <!-- Conteúdo principal -->
-      <section>
-        <div class="card">
-          <h3>Passo a Passo para o Descarte Correto</h3>
+      <div class="main-grid">
+        <!-- Lateral (imagem e informações básicas) -->
+        <aside>
+          <div class="card" style="text-align:center;">
+            <!-- Imagem da Garrafa -->
+            <img src="https://placehold.co/400x400/10b981/ffffff?text=Garrafa+Pl%C3%A1stica" alt="Garrafa plástica"
+              style="width:100%; border-radius:12px;">
+            <h3 style="margin-top:1rem;">Garrafa Plástica</h3>
+            <p style="color:var(--text-light-secondary);">
+              Este item deve ir para o recipiente de reciclagem após ser lavado e esvaziado.
+            </p>
+          </div>
 
           <div style="margin-top:1rem;">
-            <p><strong>1. Esvazie a garrafa</strong><br>
-              Certifique-se de que não há líquido dentro do recipiente.</p>
-            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
-            <p><strong>2. Enxágue</strong><br>
-              Lave rapidamente com água para remover resíduos. Não é necessário usar sabão.</p>
-            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
-            <p><strong>3. Recoloque a tampa</strong><br>
-              Tampe novamente a garrafa — isso ajuda na reciclagem do conjunto.</p>
-            <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
-            <p><strong>4. Coloque no recipiente</strong><br>
-              Deposite no coletor de recicláveis, sem colocar em sacolas plásticas.</p>
+            <a href="pontos.html" class="btn btn-primary"
+              style="width:100%; display:block; text-align:center; margin-bottom:0.5rem;">
+              🔍 Encontrar Pontos de Coleta Próximos
+            </a>
+            <a href="#" class="btn btn-outline" style="width:100%; display:block; text-align:center;">
+              Saber mais sobre Plásticos →
+            </a>
           </div>
-        </div>
+        </aside>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+        <!-- Conteúdo principal -->
+        <section>
           <div class="card">
-            <h3>O que Fazer ✅</h3>
-            <ul style="text-align:left; padding-left:1.2rem;">
-              <li>Recicle garrafas de água, refrigerante e sucos.</li>
-              <li>Deixe os rótulos — eles são removidos no processo.</li>
-              <li>Mantenha a tampa na garrafa para facilitar a triagem.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; font-weight: 700;">Passo a Passo para o Descarte Correto</h3>
+
+            <div style="margin-top:1rem;">
+              <p><strong style="color: var(--primary);">1. Esvazie a garrafa</strong><br>
+                Certifique-se de que não há líquido dentro do recipiente.</p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color: var(--primary);">2. Enxágue</strong><br>
+                Lave rapidamente com água para remover resíduos. Não é necessário usar sabão.</p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color: var(--primary);">3. Recoloque a tampa</strong><br>
+                Tampe novamente a garrafa — isso ajuda na reciclagem do conjunto.</p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color: var(--primary);">4. Coloque no recipiente</strong><br>
+                Deposite no coletor de recicláveis, sem colocar em sacolas plásticas.</p>
+            </div>
           </div>
 
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+            <div class="card" style="background-color: #d1fae5;">
+              <h3 style="color: #047857; font-size: 1.25rem; font-weight: 700;">O que Fazer ✅</h3>
+              <ul style="text-align:left; padding-left:1.2rem; list-style: disc;">
+                <li>Recicle garrafas de água, refrigerante e sucos.</li>
+                <li>Deixe os rótulos — eles são removidos no processo.</li>
+                <li>Mantenha a tampa na garrafa para facilitar a triagem.</li>
+              </ul>
+            </div>
+
+            <div class="card" style="background-color: #fee2e2;">
+              <h3 style="color: #b91c1c; font-size: 1.25rem; font-weight: 700;">O que Evitar ❌</h3>
+              <ul style="text-align:left; padding-left:1.2rem; list-style: disc;">
+                <li>Não amasse as garrafas — o formato 3D facilita a separação.</li>
+                <li>Não recicle embalagens de produtos perigosos (ex: óleo de motor).</li>
+                <li>Não coloque sacolas plásticas junto com as garrafas.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <details open class="card" style="background-color: #ecfdf5;">
+              <summary><strong style="color:#059669;">Por que isso é importante</strong></summary>
+              <p style="margin-top:0.5rem; color:#10b981;">
+                Reciclar uma tonelada de garrafas plásticas evita a emissão de até 1,5 tonelada de CO₂.
+                Além disso, conserva recursos naturais, reduz o lixo em aterros e evita a poluição dos oceanos.
+              </p>
+            </details>
+
+            <details class="card" style="margin-top:1rem; background-color: #f9fafb;">
+              <summary><strong>Variações locais</strong></summary>
+              <p style="margin-top:0.5rem; color:var(--text-light-secondary);">
+                As regras de reciclagem podem variar conforme a cidade. Algumas exigem a retirada das tampas
+                ou aceitam diferentes tipos de plástico. Consulte sempre o serviço de coleta do seu município.
+              </p>
+            </details>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- SEPARADOR VISUAL -->
+    <hr style="border:none; border-top:2px dashed #9ca3af; margin: 4rem 0;">
+
+
+    <!-- NOVA SEÇÃO: LÂMPADA FLUORESCENTE (Adicionada ao final) -->
+    <div id="lampada" style="margin-top: 2rem;">
+      <div style="margin-bottom: 2rem;">
+        <p style="color: var(--text-light-secondary); font-size: 0.95rem;">
+
+        </p>
+      </div>
+
+      <div class="main-grid">
+        <!-- Lateral (imagem e informações básicas) -->
+        <aside>
+          <div class="card" style="text-align:center;">
+            <img src="https://placehold.co/400x400/ef4444/ffffff?text=L%C3%A2mpada+Fluorescente"
+              alt="Lâmpada Fluorescente" style="width:100%; border-radius:12px;">
+            <h3 style="margin-top:1rem; color:#ef4444;">Lâmpada Fluorescente</h3>
+            <p style="color:var(--text-light-secondary);">
+              ⚠️ **Resíduo Perigoso:** Contém Mercúrio. Deve ser descartada em pontos de Logística Reversa.
+            </p>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <a href="pontos.html" class="btn btn-primary"
+              style="width:100%; display:block; text-align:center; margin-bottom:0.5rem; background-color:#ef4444; hover:bg-red-700;">
+              🔍 Encontrar Pontos de Coleta Especiais
+            </a>
+            <a href="#" class="btn btn-outline"
+              style="width:100%; display:block; text-align:center; color:#ef4444; border-color:#ef4444;">
+              O que fazer se quebrar? →
+            </a>
+          </div>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <section>
           <div class="card">
-            <h3>O que Evitar ❌</h3>
-            <ul style="text-align:left; padding-left:1.2rem;">
-              <li>Não amasse as garrafas — o formato 3D facilita a separação.</li>
-              <li>Não recicle embalagens de produtos perigosos (ex: óleo de motor).</li>
-              <li>Não coloque sacolas plásticas junto com as garrafas.</li>
-            </ul>
+            <h3 style="font-size: 1.5rem; font-weight: 700;">Passo a Passo para o Descarte Correto</h3>
+
+            <div style="margin-top:1rem;">
+              <p><strong style="color:#ef4444;">1. Manuseio Seguro</strong><br>
+                Segure a lâmpada pela base. Não a quebre para evitar a liberação de mercúrio.</p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color:#ef4444;">2. Embalagem Protetora</strong><br>
+                Utilize a embalagem original ou algo seguro (jornal/plástico-bolha) para evitar quebras no transporte.
+              </p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color:#ef4444;">3. Logística Reversa</strong><br>
+                Deposite a lâmpada em pontos de coleta especializados, como grandes varejistas ou postos específicos.
+              </p>
+              <hr style="border:none; border-top:1px solid var(--border-light); margin:1rem 0;">
+              <p><strong style="color:#ef4444;">4. Nunca no Lixo Comum</strong><br>
+                O descarte em lixeiras comuns é proibido e altamente prejudicial ao meio ambiente e à saúde.</p>
+            </div>
           </div>
-        </div>
 
-        <div style="margin-top:2rem;">
-          <details open class="card">
-            <summary><strong>Por que isso é importante</strong></summary>
-            <p style="margin-top:0.5rem;">
-              Reciclar uma tonelada de garrafas plásticas evita a emissão de até 1,5 tonelada de CO₂. 
-              Além disso, conserva recursos naturais, reduz o lixo em aterros e evita a poluição dos oceanos.
-            </p>
-          </details>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+            <div class="card" style="background-color: #fef2f2;">
+              <h3 style="color: #b91c1c; font-size: 1.25rem; font-weight: 700;">O que Fazer ✅</h3>
+              <ul style="text-align:left; padding-left:1.2rem; list-style: disc;">
+                <li>Manter a lâmpada inteira e intacta.</li>
+                <li>Levar a pontos de Logística Reversa.</li>
+                <li>Armazenar em local seguro até o descarte.</li>
+              </ul>
+            </div>
 
-          <details class="card" style="margin-top:1rem;">
-            <summary><strong>Variações locais</strong></summary>
-            <p style="margin-top:0.5rem;">
-              As regras de reciclagem podem variar conforme a cidade. Algumas exigem a retirada das tampas 
-              ou aceitam diferentes tipos de plástico. Consulte sempre o serviço de coleta do seu município.
-            </p>
-          </details>
-        </div>
-      </section>
+            <div class="card" style="background-color: #fee2e2;">
+              <h3 style="color: #b91c1c; font-size: 1.25rem; font-weight: 700;">O que Evitar ❌</h3>
+              <ul style="text-align:left; padding-left:1.2rem; list-style: disc;">
+                <li>Descartar no lixo orgânico ou reciclável.</li>
+                <li>Usar aspirador de pó para limpar uma lâmpada quebrada.</li>
+                <li>Quebrar a lâmpada intencionalmente.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 EcoPronto — Todos os direitos reservados.</p>
+    <p>© 2025 EcoPronto — Todos os direitos reservados. | Guia Unificado</p>
   </footer>
 </body>
+
 </html>
