@@ -129,7 +129,8 @@
 
   if (!loggedIn) {
     authArea.innerHTML = `
-      <a href="login.html" class="btn btn-primary">Entrar</a>
+      <a href="login.html" class="btn btn-primary" data-login-button>Entrar</a>
+
       <a href="cadastro.html" class="btn btn-outline">Cadastrar</a>
     `;
   } else {
@@ -169,5 +170,8 @@
     });
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="authCheck.js"></script>
+
   </body>
 </html>
