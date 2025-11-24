@@ -1,133 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EcoPronto - Pontos de Coleta</title>
 
-    <!-- Fontes -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPronto - Pontos de Coleta</title>
 
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    <style>
-      #map {
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
 
-  <body>
-    <header>
-      <div class="logo" style="display: flex; align-items: center; gap: 0.5rem">
-        <div style="color: var(--primary)">
-          <svg
-            fill="none"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-          >
-            <path
-              d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
-              fill="currentColor"
-            ></path>
-          </svg>
-        </div>
-        <h2>EcoPronto</h2>
+  <style>
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 0.5rem">
+      <div style="color: var(--primary)">
+        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+          <path
+            d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+            fill="currentColor"></path>
+        </svg>
       </div>
+      <h2>EcoPronto</h2>
+    </div>
 
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="dicas.html">Dicas de Sustentabilidade</a>
-        <a href="pontos.html" style="color: var(--primary); font-weight: 700"
-          >Pontos de coleta</a
-        >
-      </nav>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="dicas.html">Dicas de Sustentabilidade</a>
+      <a href="pontos.html" style="color: var(--primary); font-weight: 700">Pontos de coleta</a>
+    </nav>
 
-      <div style="display: flex; align-items: center; gap: 1rem">
-        <a href="login.html" class="btn btn-outline">Entrar</a>
-        <div
-          class="avatar"
-          style="
+    <div style="display: flex; align-items: center; gap: 1rem">
+      <a href="login.html" class="btn btn-outline">Entrar</a>
+      <div class="avatar" style="
             width: 40px;
             height: 40px;
             border-radius: 50%;
             background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX9qkJiVoLi8fbuChylPlhnQ7rGt0Bq0OB07EUf1-GqtGBDt5GGgX5M4KwNq4PQCmJPMrs-jPCnuqhjc5eLCM95gPYVg32wumWqN6HzoLMXaAPLPYGAPm8BC38Vb3qoEh6k29A_RFWg4kFm4XamRCnG664Z-d6tg1e_D2D7N9PpKKioim4rrgL3a8d5Og8otifS0VYb7Zg6DfwJLvvQX3_ogHwIb-MLTN-qawGMDSWthUZEtQCWOZ17_r-qkC3z-lJagT8f6_KC1lP');
             background-size: cover;
             background-position: center;
-          "
-        ></div>
-      </div>
-    </header>
+          "></div>
+    </div>
+  </header>
 
-    <main
-      style="display: grid; grid-template-columns: 1fr 2fr; height: calc(100vh - 100px)"
-    >
-      <!-- 🧭 Lado esquerdo: Lista dinâmica -->
-      <section
-        style="
+  <main style="display: grid; grid-template-columns: 1fr 2fr; height: calc(100vh - 100px)">
+    <!-- 🧭 Lado esquerdo: Lista dinâmica -->
+    <section style="
           border-right: 1px solid var(--border-light);
           background-color: var(--surface-light);
           overflow-y: auto;
           padding: 1.5rem;
-        "
-      >
-        <h1 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 0.5rem">
-          Pontos de Coleta
-        </h1>
-        <p style="color: var(--text-light-secondary); margin-bottom: 1.5rem">
-          Encontre e gerencie pontos de coleta perto de você.
-        </p>
+        ">
+      <h1 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 0.5rem">
+        Pontos de Coleta
+      </h1>
+      <p style="color: var(--text-light-secondary); margin-bottom: 1.5rem">
+        Encontre e gerencie pontos de coleta perto de você.
+      </p>
 
-        <form
-          style="
+      <form style="
             display: flex;
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
-          "
-        >
-          <span
-            class="material-symbols-outlined"
-            style="color: var(--text-light-secondary)"
-            >search</span
-          >
-          <input
-            id="search-box"
-            type="text"
-            placeholder="Buscar por nome ou endereço"
-            style="
+          ">
+        <span class="material-symbols-outlined" style="color: var(--text-light-secondary)">search</span>
+        <input id="search-box" type="text" placeholder="Buscar por nome ou endereço" style="
               flex: 1;
               padding: 0.75rem;
               border: 1px solid var(--border-light);
               border-radius: 8px;
-            "
-          />
-        </form>
+            " />
+      </form>
 
-        <!-- Lista gerada via JS -->
-        <div
-          id="lista-pontos"
-          style="display: flex; flex-direction: column; gap: 1rem"
-        ></div>
-      </section>
+      <!-- Lista gerada via JS -->
+      <div id="lista-pontos" style="display: flex; flex-direction: column; gap: 1rem"></div>
+    </section>
 
-      <!-- 🗺️ Lado direito: Mapa -->
-      <section style="position: relative; background-color: #ddd">
-        <a
-          href="adicionar.html"
-          class="btn btn-primary"
-          style="
+    <!-- 🗺️ Lado direito: Mapa -->
+    <section style="position: relative; background-color: #ddd">
+      <a href="adicionar.html" class="btn btn-primary" style="
             position: absolute;
             top: 1rem;
             right: 1rem;
@@ -135,127 +98,124 @@
             align-items: center;
             gap: 0.3rem;
             z-index: 10;
-          "
-        >
-          <span class="material-symbols-outlined">add</span>
-          Adicionar Ponto
-        </a>
+          ">
+        <span class="material-symbols-outlined">add</span>
+        Adicionar Ponto
+      </a>
 
-        <div id="map"></div>
-      </section>
-    </main>
+      <div id="map"></div>
+    </section>
+  </main>
 
-    <script>
-      let map;
-      let markers = [];
+  <script>
+    let map;
+    let markers = [];
 
-      async function initMap() {
-        // Mapa base
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: -23.5505, lng: -46.6333 },
-          zoom: 13,
-        });
+    async function initMap() {
+      // Mapa base
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -23.5505, lng: -46.6333 },
+        zoom: 13,
+      });
 
-        // Campo de busca (Places API)
-        const input = document.getElementById("search-box");
-        const autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo("bounds", map);
+      // Campo de busca (Places API)
+      const input = document.getElementById("search-box");
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo("bounds", map);
 
-        autocomplete.addListener("place_changed", () => {
-          const place = autocomplete.getPlace();
-          if (!place.geometry) return;
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) return;
 
-          map.panTo(place.geometry.location);
-          map.setZoom(15);
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
 
-          // Marca o ponto buscado
-          addMarker(
-            place.geometry.location.lat(),
-            place.geometry.location.lng(),
-            place.name
-          );
-        });
+        // Marca o ponto buscado
+        addMarker(
+          place.geometry.location.lat(),
+          place.geometry.location.lng(),
+          place.name
+        );
+      });
 
-        // Clique no mapa adiciona novo ponto
-        map.addListener("click", (e) => {
-          const lat = e.latLng.lat();
-          const lng = e.latLng.lng();
+      // Clique no mapa adiciona novo ponto
+      map.addListener("click", (e) => {
+        const lat = e.latLng.lat();
+        const lng = e.latLng.lng();
 
-          const nome = prompt("Digite o nome do ponto de coleta:");
-          if (nome) {
-            addMarker(lat, lng, nome);
-            saveToDatabase({ nome_ponto: nome, latitude: lat, longitude: lng });
-          }
-        });
+        const nome = prompt("Digite o nome do ponto de coleta:");
+        if (nome) {
+          addMarker(lat, lng, nome);
+          saveToDatabase({ nome_ponto: nome, latitude: lat, longitude: lng });
+        }
+      });
 
-        // Carrega pontos do banco
-        loadMarkersFromDatabase();
-      }
+      // Carrega pontos do banco
+      loadMarkersFromDatabase();
+    }
 
-      // Adiciona marcador visual
-      function addMarker(lat, lng, nome) {
-        const marker = new google.maps.Marker({
-          position: { lat, lng },
-          map,
-          title: nome,
-        });
+    // Adiciona marcador visual
+    function addMarker(lat, lng, nome) {
+      const marker = new google.maps.Marker({
+        position: { lat, lng },
+        map,
+        title: nome,
+      });
 
-        const info = new google.maps.InfoWindow({
-          content: `<strong>${nome}</strong>`,
-        });
+      const info = new google.maps.InfoWindow({
+        content: `<strong>${nome}</strong>`,
+      });
 
-        marker.addListener("click", () => info.open(map, marker));
-        markers.push(marker);
-      }
+      marker.addListener("click", () => info.open(map, marker));
+      markers.push(marker);
+    }
 
-      // Salva ponto no banco via API
-      async function saveToDatabase(ponto) {
-        await fetch("/api/pontos", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(ponto),
-        });
-      }
+    // Salva ponto no banco via API
+    async function saveToDatabase(ponto) {
+      await fetch("/api/pontos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(ponto),
+      });
+    }
 
-      // Carrega pontos do banco e exibe lista lateral
-      async function loadMarkersFromDatabase() {
-        const res = await fetch("/api/pontos");
-        const pontos = await res.json();
+    // Carrega pontos do banco e exibe lista lateral
+    async function loadMarkersFromDatabase() {
+      const res = await fetch("/api/pontos");
+      const pontos = await res.json();
 
-        const lista = document.getElementById("lista-pontos");
-        lista.innerHTML = "";
+      const lista = document.getElementById("lista-pontos");
+      lista.innerHTML = "";
 
-        pontos.forEach((p) => {
-          addMarker(parseFloat(p.latitude), parseFloat(p.longitude), p.nome_ponto);
+      pontos.forEach((p) => {
+        addMarker(parseFloat(p.latitude), parseFloat(p.longitude), p.nome_ponto);
 
-          const card = document.createElement("div");
-          card.className = "card";
-          card.style.cursor = "pointer";
-          card.innerHTML = `
-            <h3 style="font-weight:700; font-size:1.1rem">${p.nome_ponto}</h3>
-            <p style="color:var(--text-light-secondary)">
-              ${p.logradouro || ""} ${p.numero || ""} - ${p.cidade || ""}
-            </p>
-          `;
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.cursor = "pointer";
+        card.innerHTML = `
+  <h3 style="font-weight:700; font-size:1.1rem">${p.nome}</h3>
+  <p style="color:var(--text-light-secondary)">
+    ${p.endereco || ""} - ${p.cidade || ""}
+  </p>
+`;
 
-          card.addEventListener("click", () => {
-            map.panTo({
-              lat: parseFloat(p.latitude),
-              lng: parseFloat(p.longitude),
-            });
-            map.setZoom(16);
+        card.addEventListener("click", () => {
+          map.panTo({
+            lat: parseFloat(p.latitude),
+            lng: parseFloat(p.longitude),
           });
-
-          lista.appendChild(card);
+          map.setZoom(16);
         });
-      }
-    </script>
 
-    <!-- Google Maps API -->
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&libraries=places&callback=initMap"
-    ></script>
-  </body>
+        lista.appendChild(card);
+      });
+    }
+  </script>
+
+  <!-- Google Maps API -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&libraries=places&callback=initMap"></script>
+</body>
+
 </html>
