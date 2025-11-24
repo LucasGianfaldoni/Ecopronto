@@ -46,3 +46,4 @@ console.error('LOGIN ERR', err);
 return res.status(500).json({ error: 'Erro interno' });
 }
 }
+localStorage.setItem("logged", "true");

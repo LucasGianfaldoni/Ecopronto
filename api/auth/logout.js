@@ -10,3 +10,4 @@ if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allo
 res.setHeader('Set-Cookie', serialize('sb_access_token', '', { path: '/', maxAge: -1 }));
 return res.json({ ok: true });
 }
+localStorage.removeItem("logged");

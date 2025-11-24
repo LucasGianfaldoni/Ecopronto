@@ -46,9 +46,9 @@
         <a href="instrucoes.html">Instruções de Descarte</a>
       </nav>
 
-      <div style="display: flex; gap: 0.5rem">
-        <a href="login.html" class="btn btn-primary">Entrar</a>
-        <a href="cadastro.html" class="btn btn-outline">Cadastrar</a>
+     <div id="auth-area" style="display: flex; gap: 0.5rem"></div>
+
+<!-- duplicate auth-area script removed; authentication logic consolidated in the script near the end of the file -->
       </div>
     </header>
 
@@ -123,5 +123,51 @@
     <footer>
       <p>© 2025 EcoPronto. Todos os direitos reservados.</p>
     </footer>
+    <script>
+  const loggedIn = localStorage.getItem("logged") === "true";
+  const authArea = document.getElementById("auth-area");
+
+  if (!loggedIn) {
+    authArea.innerHTML = `
+      <a href="login.html" class="btn btn-primary">Entrar</a>
+      <a href="cadastro.html" class="btn btn-outline">Cadastrar</a>
+    `;
+  } else {
+    authArea.innerHTML = `
+      <div style="position: relative;">
+        <div class="avatar" id="avatar-btn">
+          <span class="material-symbols-outlined" style="font-size: 22px">person</span>
+        </div>
+
+        <div class="dropdown" id="dropdown-menu">
+          <a href="perfil.html">Perfil</a>
+          <a href="configuracoes.html">Configurações</a>
+          <a href="#" id="logout-btn">Sair</a>
+        </div>
+      </div>
+    `;
+
+    const avatarBtn = document.getElementById("avatar-btn");
+    const dropdown = document.getElementById("dropdown-menu");
+
+    // Abrir / fechar o menu
+    avatarBtn.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+    });
+
+    // Fechar clicando fora
+    document.addEventListener("click", (e) => {
+      if (!authArea.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+
+    // Logout
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("logged");
+      window.location.reload();
+    });
+  }
+</script>
   </body>
 </html>

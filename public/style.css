@@ -183,3 +183,47 @@ body.dark footer {
   border-color: var(--border-dark);
   color: var(--text-dark-secondary);
 }
+/* Avatar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  width: 160px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.dropdown.active {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.dropdown a:hover {
+  background: var(--background-light);
+}
