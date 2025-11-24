@@ -37,20 +37,17 @@
 
         <label>
           <p>Nome do Ponto</p>
-          <input type="text" name="nome_ponto" placeholder="Digite o nome do ponto de coleta" required
-            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+          <input type="text" name="nome_ponto" placeholder="Digite o nome do ponto de coleta" required>
         </label>
 
         <label>
           <p>Descrição / Observações</p>
-          <textarea name="descricao" placeholder="Adicione uma descrição ou observações relevantes"
-            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; min-height:120px; resize:vertical; margin-bottom:1rem;"></textarea>
+          <textarea name="descricao" placeholder="Adicione uma descrição ou observações relevantes"></textarea>
         </label>
 
         <label>
           <p>Telefone (Opcional)</p>
-          <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX"
-            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+          <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX">
         </label>
       </section>
 
@@ -59,34 +56,29 @@
 
         <label>
           <p>Rua / Logradouro</p>
-          <input type="text" name="logradouro" placeholder="Rua, Avenida, etc." required
-            style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+          <input type="text" name="logradouro" id="campo_logradouro" placeholder="Rua, Avenida, etc." required>
         </label>
 
         <div style="display:flex; gap:1rem; margin-bottom:1rem;">
           <label style="flex-grow:1;">
             <p>Número</p>
-            <input type="text" name="numero" placeholder="Ex: 123"
-              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
+            <input type="text" name="numero" id="campo_numero" placeholder="Ex: 123">
           </label>
 
           <label style="flex-grow:1;">
             <p>CEP</p>
-            <input type="text" name="cep" placeholder="00000-000" required
-              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px;">
+            <input type="text" name="cep" id="campo_cep" placeholder="00000-000" required>
           </label>
         </div>
 
         <div style="display:flex; gap:1rem;">
           <label style="flex:1;">
             <p>Cidade</p>
-            <input type="text" name="cidade" placeholder="Ex: São Paulo" required
-              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+            <input type="text" name="cidade" id="campo_cidade" placeholder="Ex: São Paulo" required>
           </label>
           <label style="flex:1;">
             <p>Estado</p>
-            <input type="text" name="estado" placeholder="Ex: SP"
-              style="width:100%; padding:0.75rem; border:1px solid var(--border-light); border-radius:8px; margin-bottom:1rem;">
+            <input type="text" name="estado" id="campo_estado" placeholder="Ex: SP">
           </label>
         </div>
 
@@ -131,9 +123,11 @@
     const LAT_INICIAL = -23.55052;
     const LNG_INICIAL = -46.63330;
 
-    let map, marker;
+    let map, marker, geocoder;
 
     function initMap() {
+      geocoder = new google.maps.Geocoder();
+
       map = new google.maps.Map(document.getElementById("mapa"), {
         zoom: 12,
         center: { lat: LAT_INICIAL, lng: LNG_INICIAL },
@@ -157,30 +151,57 @@
         document.getElementById('input_longitude').value = pos.lng().toFixed(6);
       });
 
-      setTimeout(() => {
-        google.maps.event.trigger(map, 'resize');
-        map.setCenter(new google.maps.LatLng(LAT_INICIAL, LNG_INICIAL));
-      }, 100);
+      // --- ATUALIZAR MARCADOR QUANDO O ENDEREÇO FOR DIGITADO ---
+      const camposEndereco = [
+        "campo_logradouro",
+        "campo_numero",
+        "campo_cidade",
+        "campo_estado",
+        "campo_cep",
+      ];
+
+      camposEndereco.forEach(id => {
+        document.getElementById(id).addEventListener("change", atualizarMapaPeloEndereco);
+      });
     }
 
+    function atualizarMapaPeloEndereco() {
+      const rua = document.getElementById("campo_logradouro").value || "";
+      const numero = document.getElementById("campo_numero").value || "";
+      const cidade = document.getElementById("campo_cidade").value || "";
+      const estado = document.getElementById("campo_estado").value || "";
+      const cep = document.getElementById("campo_cep").value || "";
+
+      const enderecoCompleto = `${rua} ${numero}, ${cidade}, ${estado}, ${cep}`;
+
+      geocoder.geocode({ address: enderecoCompleto }, (results, status) => {
+        if (status === "OK" && results[0]) {
+          const pos = results[0].geometry.location;
+
+          map.setCenter(pos);
+          marker.setPosition(pos);
+
+          document.getElementById("input_latitude").value = pos.lat().toFixed(6);
+          document.getElementById("input_longitude").value = pos.lng().toFixed(6);
+        }
+      });
+    }
+
+    // --- ENVIO DO FORMULÁRIO ---
     document.getElementById('formAdicionarPonto').addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const formData = new FormData(event.target);
       const dados = {};
 
-      // Coleta dados simples
       for (const [key, value] of formData.entries()) {
         if (key !== 'residuos') dados[key] = value;
       }
 
-      // Coleta resíduos marcados
       dados.residuos = [];
-      event.target.querySelectorAll('input[name="residuos"]:checked').forEach(cb => {
-        dados.residuos.push(cb.value);
-      });
+      event.target.querySelectorAll('input[name="residuos"]:checked')
+        .forEach(cb => dados.residuos.push(cb.value));
 
-      // Ajusta para formato esperado pelo backend
       dados.nome = dados.nome_ponto;
       dados.endereco = `${dados.logradouro || ""}, ${dados.numero || ""}`;
       delete dados.nome_ponto;
