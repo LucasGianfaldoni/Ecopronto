@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -117,7 +118,7 @@
   <!-- Google Maps -->
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMli7nuu86koVtaKxELL1tfv-yo3c2H8o&callback=initMap">
-  </script>
+    </script>
 
   <script>
     const LAT_INICIAL = -23.55052;
@@ -151,18 +152,37 @@
         document.getElementById('input_longitude').value = pos.lng().toFixed(6);
       });
 
-      // --- ATUALIZAR MARCADOR QUANDO O ENDEREÇO FOR DIGITADO ---
-      const camposEndereco = [
-        "campo_logradouro",
-        "campo_numero",
-        "campo_cidade",
-        "campo_estado",
-        "campo_cep",
-      ];
+      // --- Função para atualizar o mapa ao digitar endereço ---
+      let enderecoTimeout = null;
 
-      camposEndereco.forEach(id => {
-        document.getElementById(id).addEventListener("change", atualizarMapaPeloEndereco);
-      });
+      function atualizarMapaPeloEndereco() {
+        clearTimeout(enderecoTimeout);
+
+        enderecoTimeout = setTimeout(() => {
+          const rua = document.getElementById("campo_logradouro").value || "";
+          const numero = document.getElementById("campo_numero").value || "";
+          const cidade = document.getElementById("campo_cidade").value || "";
+          const estado = document.getElementById("campo_estado").value || "";
+          const cep = document.getElementById("campo_cep").value || "";
+
+          const enderecoCompleto = `${rua} ${numero}, ${cidade} - ${estado}, ${cep}`.trim();
+
+          if (enderecoCompleto.length < 5) return;
+
+          geocoder.geocode({ address: enderecoCompleto }, (results, status) => {
+            if (status === "OK" && results[0]) {
+              const pos = results[0].geometry.location;
+
+              map.panTo(pos);
+              map.setZoom(16);
+              marker.setPosition(pos);
+
+              document.getElementById("input_latitude").value = pos.lat().toFixed(6);
+              document.getElementById("input_longitude").value = pos.lng().toFixed(6);
+            }
+          });
+        }, 600); // aguarda 600ms após parar de digitar
+      }
     }
 
     function atualizarMapaPeloEndereco() {
@@ -230,4 +250,5 @@
     });
   </script>
 </body>
+
 </html>

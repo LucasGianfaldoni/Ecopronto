@@ -193,11 +193,25 @@
         const card = document.createElement("div");
         card.className = "card";
         card.style.cursor = "pointer";
-        card.innerHTML = `
-  <h3 style="font-weight:700; font-size:1.1rem">${p.nome}</h3>
-  <p style="color:var(--text-light-secondary)">
-    ${p.endereco || ""} - ${p.cidade || ""}
-  </p>
+        const isAdmin = localStorage.getItem("tipo_usuario") === "admin";
+
+card.innerHTML = `
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <h3 style="font-weight:700; font-size:1.1rem">${p.nome_ponto}</h3>
+      <p style="color:var(--text-light-secondary); font-size:0.9rem">
+        ${p.endereco || ""} ${p.cidade ? " - " + p.cidade : ""}
+      </p>
+    </div>
+
+    ${
+      isAdmin
+        ? `<button class="btn btn-outline"
+            style="padding:0.3rem 0.6rem; color:red; border-color:red;"
+            onclick="removerPonto(${p.id})">X</button>`
+        : ""
+    }
+  </div>
 `;
 
         card.addEventListener("click", () => {
